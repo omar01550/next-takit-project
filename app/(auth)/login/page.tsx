@@ -20,7 +20,7 @@ const LoginPage = () => {
                                               welcome to <span className='text-omar-100'>TaK</span>it     
                                       </h2>
 
-                                      <p className="text-omar-100 font-semibold text-xl capitalize mt-5 w-full md:w-80 text-center">
+                                      <p className="text-omar-100 font-semibold text-base md:text-xl capitalize mt-5 w-full md:w-80 text-center">
                                         enter your email and  password to reach your account ticket
                                       </p>
         </div>

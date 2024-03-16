@@ -23,7 +23,7 @@ const Header = () => {
             </nav>
 
             <div className="auth-btns hidden lg:flex space-x-4 items-center capitalize">
-                   <Link href={'/create-account'} className='rounded-md bg-blue-950 px-6 py-1 font-bold text-base border-none outline-none hover:opacity-80'>
+                   <Link href={'/signup'} className='rounded-md bg-blue-950 px-6 py-1 font-bold text-base border-none outline-none hover:opacity-80'>
                      create account
                    </Link>
 

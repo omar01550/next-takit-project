@@ -14,6 +14,7 @@ const users =[
 
 export const POST = async (request:NextRequest) => {
 const body = await request.json();
+console.log(body);
 
 
 const user = users.find((user) => {
@@ -21,8 +22,8 @@ const user = users.find((user) => {
 })
 console.log();
 
-if (user) {
-    return new Response(JSON.stringify({...user,token:JWT.sign(user,"hamada_secret")}))
+if (body.email == "omar@gmail.com" && body.password == "omar101010") {
+    return new Response(JSON.stringify({...user,token:JWT.sign({body},"hamada_secret")}))
 }else{
     return NextResponse.json({
          message:'not found user'
