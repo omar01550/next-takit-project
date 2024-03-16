@@ -33,7 +33,7 @@ const LoginForm = () => {
     
    <form action="" className="flex flex-col items-center space-y-6 mt-12 w-full  " onSubmit={handleSubmit((data) => {
          if (data) {
-          fetch("https://next-takit-project-4ju7683kh-omar-medhats-projects.vercel.app/api/login",{
+          fetch("https://next-takit-project.vercel.app/api/login",{
              method:"POST",
              body:JSON.stringify(data)
           }).then((res) => {
