@@ -4,6 +4,8 @@ import { headers } from 'next/headers';
 import Header from './components/header';
 import Hero from './components/hero';
 import ClientWrapper from '@/context/app';
+import Footer from './components/footer';
+
 
 
 
@@ -31,6 +33,7 @@ if (route?.includes("signup") || route?.includes("login")) {
     {children}            
 
 </ClientWrapper>
+<Footer/>
         </body>
     </html>
   )
