@@ -23,11 +23,16 @@ const user = users.find((user) => {
 console.log();
 
 if (body.email == "omar@gmail.com" && body.password == "omar101010") {
-    return new Response(JSON.stringify({...user,token:JWT.sign({body},"hamada_secret")}))
-}else{
+    return new Response(JSON.stringify({...user,token:JWT.sign({...body,name:"ali"},"hamada_secret")}))
+}else if(body==null){
     return NextResponse.json({
          message:'not found user'
     },{status:404})
+}else{
+    return NextResponse.json({
+        message:'internal server eror'
+   },{status:500})
+
 }
 
 

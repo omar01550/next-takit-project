@@ -3,6 +3,7 @@ import './globals.css';
 import { headers } from 'next/headers';
 import Header from './components/header';
 import Hero from './components/hero';
+import ClientWrapper from '@/context/app';
 
 
 
@@ -25,8 +26,11 @@ if (route?.includes("signup") || route?.includes("login")) {
         <body>
           {/* {!isAuth&&<Hero/>}  */}
           
+<ClientWrapper>
+   
+    {children}            
 
-          {children}            
+</ClientWrapper>
         </body>
     </html>
   )

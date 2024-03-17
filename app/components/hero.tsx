@@ -2,8 +2,19 @@ import React from 'react'
 import Header from './header'
 import ContainerWrapper from './containerWrapper'
 import './css/hero.css';
+import { cookies } from 'next/headers';
+import jwt from 'jsonwebtoken'
 
 const Hero = () => {
+ 
+   const allCookies =cookies();
+   
+   const tokenDecoded = jwt.decode(allCookies.get("token"));
+   
+   
+   console.log(tokenDecoded);
+   
+
   return (
     <div className='w-full h-[230px] text-white hero relative'>
         <div className="hero-overlay absolute w-full h-full bg-black opacity-50 left-0 top-0">

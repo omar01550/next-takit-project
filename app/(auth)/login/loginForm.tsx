@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -11,11 +11,14 @@ import { z } from 'zod';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined';
 import { useRouter } from 'next/navigation';
+import { userContext } from '@/context/app';
+import JWT from 'jsonwebtoken'
 
 
 
 
 const LoginForm = () => {
+  const [user,setUser] = useContext(userContext);
 
   const route = useRouter();
   const [showPassword,setShowPassword]  = useState(false);
@@ -33,7 +36,8 @@ const  handleLogin =(data) => {
    fetch("http://localhost:3000/api/login",{
       method:"POST",
       body:JSON.stringify(data)
-   }).then((res) => {
+   })
+   .then((res) => {
       if(res.status == 200){
        return res.json()
       }else{
@@ -41,11 +45,13 @@ const  handleLogin =(data) => {
       }
    })
    .then((result) => {
-    
-const token = result.token ;
-document.cookie=`token=${token}`;
-if (token ) {
-route.push("/")    
+            
+        const token = result.token ;
+        document.cookie=`token=${token}`;
+        if (token ) {
+         const userDecoded = JWT.decode(token);
+         setUser(userDecoded)
+        route.push("/")    
 }
      
    })
@@ -126,7 +132,7 @@ route.push("/")
 
 
           <Button className='bg-blue-900 rounded-full px-20 py-3 w-fit text-2xl flex justify-center items-center mt-8 hover:bg-blue-800 cursor-pointer'>
-              {loading?<span className='w-8 h-8 rounded-full border-1 border-white border-solid animate-spin'></span>:"Login"}
+              {loading?<span className='w-[15px] h-[15px] rounded-full border-2 border-white border-solid animate-spin'></span>:"Login"}
           </Button>
 
   </form>

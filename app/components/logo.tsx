@@ -1,11 +1,14 @@
+
+import Link from 'next/link'
 import React from 'react'
 
 const Logo = () => {
   return (
-     <h1 className='capitalize text-4xl font-bold text-blue-950'>
+     <Link href="/" className='capitalize text-4xl font-bold text-blue-950'>
           tak<span className='text-red-500'>it</span>
-     </h1>
+     </Link>
   )
+  
 }
 
 export default Logo
