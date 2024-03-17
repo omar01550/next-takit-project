@@ -30,7 +30,7 @@ const Footer = () => {
                     
                </div>
 {/* center item */}
-               <div className="text w-full text-center text-3xl capitalize font-semibold">
+               <div className="text w-full text-center text-xl md:text-3xl capitalize font-semibold">
                  <h1 >all your tickits options in one place</h1>
                  <p className="text-omar-100 text-center font-semibold text-lg mt-5">
                       Book train , bus ,metro tickets
@@ -40,7 +40,7 @@ const Footer = () => {
 
 {/* social media links */}
 
-               <div className="links flex justify-center items-center gap-3">
+               <div className="links flex justify-center items-center gap-3 mt-6 lg:mt-0">
                     <Facebook/>
                     <Linkedin/>
                     <Instagram/>

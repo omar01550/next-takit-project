@@ -22,7 +22,7 @@ const Header = () => {
                       train
                   </Link>
 
-                  <Link href='/buses' className='text-lg font-semibold text-omar-100'>
+                  <Link href='/buses' className='text-lg font-semibold'>
                       Buses
                   </Link>
 
