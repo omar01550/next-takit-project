@@ -30,7 +30,7 @@ if (route?.includes("signup") || route?.includes("login")) {
           
 <ClientWrapper>
    
-    {children}            
+    {children};     
 
 </ClientWrapper>
 <Footer/>

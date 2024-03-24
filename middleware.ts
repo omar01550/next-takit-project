@@ -14,6 +14,11 @@ const userToken = allCookies.get("token")
     }
      
 }
+
+// if ((requestPathName.includes("/train") || requestPathName.includes("/bus") )&& !userToken) {
+//     return NextResponse.redirect(new URL('/login', request.url))
+
+// }
 }
 // last middleware
 

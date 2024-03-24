@@ -14,7 +14,7 @@ import { useRouter } from 'next/navigation';
 import { userContext } from '@/context/app';
 import JWT from 'jsonwebtoken'
 
-
+  
 
 
 const LoginForm = () => {
@@ -122,16 +122,16 @@ const  handleLogin =(data) => {
           </div>
 
         {/* password field */}
-        <Link href={'/forgotpassword'} className='text-end text-omar-100 underline w-full font-semibold text-base capitalize flex justify-end items-center md:px-28'>
+        <Link href={'/forgotpassword'} className='text-end text-primary-100 underline w-full font-semibold text-base capitalize flex justify-end items-center md:px-28'>
               forgot your password ?
           </Link>
 
-          <Link href={'/signup'} className='text-end text-omar-100 underline w-full font-semibold text-base capitalize flex justify-end items-center md:px-28 '>
+          <Link href={'/signup'} className='text-end text-primary-100 underline w-full font-semibold text-base capitalize flex justify-end items-center md:px-28 '>
               create new account<ArrowRightAltOutlinedIcon/>
           </Link>
 
 
-          <Button className='bg-blue-900 rounded-full px-20 py-3 w-fit text-2xl flex justify-center items-center mt-8 hover:bg-blue-800 cursor-pointer'>
+          <Button className='bg-secondary-100 rounded-full px-20 py-3 w-fit text-2xl flex justify-center items-center mt-8 hover:bg-blue-800 cursor-pointer text-white'>
               {loading?<span className='w-[15px] h-[15px] rounded-full border-2 border-white border-solid animate-spin'></span>:"Login"}
           </Button>
 

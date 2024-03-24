@@ -7,7 +7,7 @@ import CreateAccount from './components/createAccount'
 const SignupPage = () => {
   return (
         <main className='signup-page'>
-            <ContainerWrapper className=''>
+            <ContainerWrapper className='px-0 lg:px-28'>
                  <CreateAccount/>
                  
             </ContainerWrapper>

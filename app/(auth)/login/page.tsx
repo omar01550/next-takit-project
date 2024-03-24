@@ -17,10 +17,10 @@ const LoginPage = () => {
     <section className="intro w-full lg:w-6/12 bg-myblue py-10 flex flex-col items-center">
 <div className="form-title">
                 <h2 className="text-3xl lg:text-5xl font-bold text-blue-900 text-center md:text-start">
-                                             welcome to <span className='text-omar-100'>TaK</span>it     
+                                             welcome to <span className='text-primary-100'>TaK</span>it     
                 </h2>
 
-                                      <p className="text-omar-100 font-semibold text-base md:text-xl capitalize mt-5 w-full md:w-80 text-center">
+                                      <p className="text-primary-100 font-semibold text-base md:text-xl capitalize mt-5 w-full md:w-80 text-center">
                                           enter your email and  password to reach your account ticket
                                       </p>
         </div>

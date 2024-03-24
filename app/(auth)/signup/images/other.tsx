@@ -1,8 +1,10 @@
 import React from 'react'
 
-const OtherImage = () => {
+const OtherImage = ({chose,setChose}) => {
   return (
-    <div className='cursor-pointer'>
+    <div className={chose == 'other'?'cursor-pointer ring-8 ring-secondary-100 rounded-md':'cursor-pointer rounded-md'} onClick={() => {
+         setChose("other")
+    }}>
         <svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.5" y="0.5" width="299" height="199" rx="9.5" fill="#F1F1F1" fill-opacity="0.7"/>
 <rect x="0.5" y="0.5" width="299" height="199" rx="9.5" stroke="black"/>

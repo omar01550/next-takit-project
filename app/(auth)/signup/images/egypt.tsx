@@ -1,8 +1,11 @@
 import React from 'react'
 
-const EgyptImage = () => {
+const EgyptImage = ({chose,setChose}) => {
+
   return (
-    <div className='cursor-pointer'>
+    <div className={chose == 'egypt'?'cursor-pointer ring-8 ring-secondary-100 rounded-md':'cursor-pointer rounded-md'} onClick={() => {
+        setChose("egypt")
+    }}>
              <svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="300" height="200" rx="10" fill="#F1F1F1" fill-opacity="0.7"/>
 <g clip-path="url(#clip0_5_4197)">

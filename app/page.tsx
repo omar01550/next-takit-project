@@ -6,12 +6,17 @@ import Service from './components/service'
 import ServiceBus from '@/public/images/serviceBus'
 import ServiceMetro from '@/public/images/serviceMetro'
 import ServiceTrain from '@/public/images/serviceTrain'
+import { cookies } from 'next/headers'
 
 
 const HomePage = () => {
+
+
+
   return (
     <main className="home w-full">
           <Hero/>
+
           <ContainerWrapper className='flex flex-col justify-center items-center space-y-6 py-12 lg:flex-row lg:justify-between'>
             <Link href={'/train'}>
                 <Service 
