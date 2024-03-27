@@ -1,40 +1,34 @@
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { NextRequest, NextResponse } from "next/server";
+import jwt from 'jsonwebtoken'
+
 
 
 export default function MiddleWare (request:NextRequest){
      
 const requestPathName = request.nextUrl.pathname;
 const allCookies = cookies();
-const userToken = allCookies.get("token")
- if(requestPathName.includes("login") || requestPathName.includes("/signup")){
-     if (userToken) {
-        return NextResponse.redirect(new URL('/', request.url))
-    }
-     
-}
+const token = allCookies.get("token")?.value
 
-// if ((requestPathName.includes("/train") || requestPathName.includes("/bus") )&& !userToken) {
-//     return NextResponse.redirect(new URL('/login', request.url))
-
-// }
-}
-// last middleware
-
-//const requestPathName = request.nextUrl.pathname;
-     
-     
-     
-// //  const newHeaders = new Headers(request.headers);
-// //  newHeaders.set("route",requestPathName)
-
-//     //  console.log(request.headers);
-     
-//     //  return NextResponse.next({
-//     //      request:{
-//     //         headers:newHeaders
-//     //      }
-//     //  })
-     
+const user = jwt.decode(token);
   
+// login signup 
+if (requestPathName.includes("/login")||requestPathName.includes("/signup")) {
+    if (user) {
+          return NextResponse.redirect(new URL('/', request.url))         
+    }        
+}
+
+// dashboard
+if (requestPathName.includes("/dashboard")) {
+      if (!(user && user.isAdmin)) {
+          return NextResponse.redirect(new URL('/', request.url))         
+      }
+      
+  
+}
+
+
+
+}

@@ -1,59 +1,48 @@
-  
-  import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-    CommandList,
-    CommandSeparator,
-    CommandShortcut,
-  } from "@/components/ui/command"
-  
-  export default function CommandDemo() {
-    return (
-      <div className="p-40">
-           <Command className="rounded-lg border shadow-md">
-        <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Suggestions">
-            <CommandItem>
-              
-              <span>Calendar</span>
-            </CommandItem>
-            <CommandItem>
-              
-              <span>Search Emoji</span>
-            </CommandItem>
-            <CommandItem>
-              
-              <span>Launch</span>
-            </CommandItem>
-          </CommandGroup>
-          <CommandSeparator />
-          <CommandGroup heading="Settings">
-            <CommandItem>
-              
-              <span>Profile</span>
-              <CommandShortcut>⌘P</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-              
-              <span>Mail</span>
-              <CommandShortcut>⌘B</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-  
-              <span>Settings</span>
-              <CommandShortcut>⌘S</CommandShortcut>
-            </CommandItem>
-          </CommandGroup>
-        </CommandList>
-      </Command>
-      </div>
 
+'use client'
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/components/ui/command"
+import { ArrowDown } from "lucide-react";
+import { useState } from "react"
 
-    )
-  }
-  
+export default function FromTO({station,setStation}) {
+
+   const [open,setOpen]= useState(false);
+  return (
+    
+                 <div className="w-full min-h-auto m-h-80">
+                 <button onClick={_=> setOpen(!open)} className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground focus:outline-none  focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1">{station?station:"select a from station"} <ArrowDown/></button>
+          <Command className={open?"rounded-lg border shadow-md":"rounded-lg border shadow-md hidden"}  >
+      <CommandInput placeholder="Type a command or search..." />
+      <CommandList className="">
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup title="from" className="">
+                {["almansourah","talkha","banha","tanta","cairo","alex",...["almansourah","talkha","banha","tanta","cairo","alex"]].map((station) => {
+                    return (
+                      <CommandItem className="rounded-sm shadow-sm capitalize">
+                         <span className="w-full p-2 rounded-sm"  onClick={() => {
+                              setStation(station);
+                              setOpen(false)
+
+                          
+                      }}>{station}</span>
+                     </CommandItem>
+                    )
+                })}
+        
+          </CommandGroup>        
+      </CommandList>
+    </Command>
+
+                 </div>
+
+  )
+}

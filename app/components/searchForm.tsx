@@ -1,90 +1,131 @@
 'use client'
-import React, { useState } from 'react'
-import SearchInput from './searchInput'
-import SelectInput from './selectInput'
 
-import { BackpackIcon, Delete, KeyRound, LampDesk, Search, SearchIcon, Train, Undo2, Users } from 'lucide-react'
+import React, { useEffect, useState } from "react"
+import { Menu, MenuIcon, Search } from "lucide-react"
+import { format } from "date-fns"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { Calendar } from "@/components/ui/calendar"
+import { CalendarCheck2 } from "lucide-react"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Button } from '@/components/ui/button'
-import { useForm } from 'react-hook-form'
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 
-
-
-
-
-const SearchForm = ({BookData,setBookData,setTickets,setLoading,setError}) => {
-       const {register,handleSubmit,formState,getValues} = useForm();    
-    
-       const getTickets = async () => {
-              setTickets([]);
-              setLoading(true)
-              try {
-                   const res = await fetch("http://localhost:3000/api/tickets",{
-                           method:"POST",
-                           cache:"no-cache"
-                   });
-                   const wait = await new Promise((res,rej) => {
-                     setTimeout(() => {
-                           res('done')   
-                     }, 4000);
-                   });
-
-                   const tickets = await res.json();
-                   setTickets(tickets)
-              
+import {
+       Select,
+       SelectContent,
+       SelectGroup,
+       SelectItem,
+       SelectLabel,
+       SelectTrigger,
+       SelectValue,
+     } from "@/components/ui/select"
      
-              } catch (error) {
-               console.log(error);
-               setError(error)
+import FromTO from "../test/page"
+     
+export default function SearchFrom({loading,setLoading,tickets,setTickets,error,setError}) {
+       const [date, setDate] = React.useState<Date>()
+       const [count,setCount] = React.useState<number>(1);
+       const [from,setFrom] = useState<string|null>(null)
+       const [to,setTo] = useState<string|null>(null)
+
+       const [open, setOpen] = React.useState(false)
+       
+     
+      const handleSearch = async () => {
+        setLoading(true)
+          fetch("http://192.168.0.104:3000/api/tickets")
+          .then((res) => {
+              return res.json()
+          }).then((tickets) => {
+               console.log(tickets);
                
-                    
-              }
-              finally{
-setLoading(false)
-              }
-       }
+              setTickets(tickets)
+          }).finally(() => {
+             setLoading(false)
+          })
+      }
+       
+       
+      
+       return (
+         <div className="flex flex-col lg:flex-row justify-start items-start">
 
-  return (
-     <form className="secrch-form w-full  -translate-y-0 lg:-translate-y-10 flex flex-col lg:flex-row justify-center lg:justify-between items-center bg-[#A1A9C3]/30 p-[6px] rounded-md gap-1" onSubmit={handleSubmit(getTickets)}>
-     
-           
-           {/* <SearchInput/> */}
-           <div className="input-container p-2 flex justify-between items-center bg-white rounded-md w-full">
-                  <Train/>
-                  <input type="text" className='text-xl p-2 border-none outline-none text-black w-full' placeholder='from' {...register("from")}/>
-           </div>
-           <div className="input-container p-2 flex justify-between items-center bg-white rounded-md w-full">
-                  <Train/>
-                  <input type="text" className='text-xl p-2 border-none outline-none text-black w-full' placeholder='to' {...register("to")}/>
-           </div>
-           <div className="input-container p-2 flex justify-between items-center bg-white rounded-md w-full">
-                  <Users/>
-                  <input type="text" className='text-xl p-2 border-none outline-none text-black w-full' placeholder='count' {...register("count")}/>
-           </div>
-             
-           <div className="input-container p-2 flex justify-between items-center bg-white rounded-md w-full">
+   {/* from to  */}
+            <FromTO station={from} setStation={setFrom}/>
+            <FromTO station={to} setStation={setTo}/>
+
+
+{/* from to */}
+
+
+{/* date */}
+<Popover>
+           <PopoverTrigger asChild>
+             <Button
+               variant={"outline"}
+               className={cn(
+                 "w-full justify-start text-left font-normal",
+                 !date && "text-muted-foreground"
+               )}
+             >
+               <CalendarCheck2 className="mr-2 h-4 w-4" />
+               {date ? format(date, "PPP") : <span>Pick a date</span>}
+             </Button>
+           </PopoverTrigger>
+           <PopoverContent className="w-auto p-0" align="start">
+             <Calendar
+               mode="single"
+               selected={date}
+               onSelect={(date) => {
+                     setDate(date)
+                     
+               }}
+               initialFocus
+               showOutsideDays={false}
+               weekStartsOn={6}
+               fromDate={new Date()}
+             />
+           </PopoverContent>
+         </Popover>
+{/* date */}
+
+
+         <Select defaultValue={count} onValueChange={(value) => {
+               setCount(value)
+               
+         }}>
+      <SelectTrigger className="w-full focus:ring-0 flex">
+            <SelectValue placeholder="Select a count" />
+            
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup onSelect={(value) => {
+              console.log("value");
               
-              <Undo2/>
-                  <input type="text" className='text-xl p-2 border-none outline-none text-black w-full' placeholder='return' {...register("return")}/>
-           </div>
-            <button className="search-btn flex justify-center items-center gap-2 text-white bg-primary-100 capitalize p-4 rounded-md w-full lg:w-auto">
-                 <Search/>
-                 <span>search</span>
-            </button>
+        }}>
+          <SelectLabel>count</SelectLabel>
+          {[1,2,3,4,5].map((number) => {
+              return (
+                 <SelectItem value={number}>{number}</SelectItem>
+                     
+              )
+          })}
+          
+        </SelectGroup>
+      </SelectContent>
+    </Select>
 
-           
-           
-           
-     </form>
-  )
-}
 
-export default SearchForm
+    
+    
+
+    
+      
+       <button className="flex h-10 w-full lg:w-auto  items-center justify-start gap-2  rounded-md border border-input bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground focus:outline-none  focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 bg-red-500 text-white" onClick={handleSearch}>{loading?'loading ....':<><Search/> Search</>}</button>
+      
+         </div>
+       )
+     }

@@ -92,7 +92,7 @@ const tickets =[
 
 
 
-export const POST = async (request:NextRequest) => {
+export const GET = async (request:NextRequest) => {
     
     
      
