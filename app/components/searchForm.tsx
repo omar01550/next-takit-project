@@ -36,7 +36,7 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,error,
      
       const handleSearch = async () => {
         setLoading(true)
-          fetch("http://localhost:3000/api/tickets")
+          fetch("https://next-takit-project.vercel.app/api/tickets")
           .then((res) => {
               return res.json()
           }).then((tickets) => {

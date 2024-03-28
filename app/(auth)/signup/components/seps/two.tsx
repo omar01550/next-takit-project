@@ -97,7 +97,7 @@ const StepTwo = () => {
                })
                 // delete confirm password
                 delete userData.confirmpassword
-               fetch("http://localhost:3000/api/signup",{
+               fetch("https://next-takit-project.vercel.app/api/signup",{
                  method:"POST",
                  body:JSON.stringify(userData)
               
