@@ -8,7 +8,10 @@ import HttpsOutlinedIcon from '@mui/icons-material/HttpsOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import IntroLogin from './intro';
 import LoginForm from './loginForm';
-const LoginPage = () => {
+const LoginPage =  () => {
+  
+
+
   return (
     <main className="login-page w-full">
           <ContainerWrapper className='flex w-full'>

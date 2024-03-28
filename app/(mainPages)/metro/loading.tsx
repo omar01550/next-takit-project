@@ -1,13 +1,12 @@
 import PageLoader from '@/app/components/pageloader'
 import React from 'react'
 
-const Loading  = () => {
+const Loading = () => {
   return (
-    
-    <main className="min-h-[90vh]">
+    <div>
         <PageLoader/>
-    </main>
+    </div>
   )
 }
 
-export default Loading 
+export default Loading

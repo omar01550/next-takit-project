@@ -8,7 +8,8 @@ import ServiceTrain from '@/public/images/serviceTrain'
 
 
 
-const TrainPage = () => {
+
+const TrainPage =  () => {
 
       const [BookData,setBookData] = useState({
           from:"",
@@ -22,6 +23,7 @@ const TrainPage = () => {
       const [loading,setLoading] = useState(false);
       const [error,setError] = useState(null)
 
+  
   return (
     <main className='min-h-[30vh]'>
          <ContainerWrapper>
