@@ -1,23 +1,23 @@
-'use client'
 import Link from 'next/link'
 import React, { useContext } from 'react'
 import Logo from './logo'
 import {TrainFront, Bus, MenuIcon, Train, TrainTrack } from 'lucide-react'
-import { userContext } from '@/context/app'
 import { Button } from '@/components/ui/button'
-import { useRouter } from 'next/navigation'
 import clearAllCookies from '../../lib/clearCookie.js';
 import { cookies } from 'next/headers'
+import { getUserState } from '@/lib/utils'
+import { UserList } from '@/app/components/userList'
 
 
 const Header = () => {
-  const [user,setUser] = useContext(userContext)
-  const route = useRouter();
+   
+  const allCookies = cookies();
+  const token = allCookies.get("token")?.value;
 
-
-
+const user = getUserState(token)
   return (
-    <header className='flex justify-between items-center py-4 relative'>          <Logo/>
+    <header className='flex justify-between items-center py-4 relative'>      
+        <Logo/>
             <nav className='hidden lg:flex space-x-4  capitalize items-end'>
                   <Link href="/train" className='text-lg font-semibold flex justify-center items-center gap-2 hover:text-primary-100'>
                       train
@@ -37,14 +37,9 @@ const Header = () => {
 
             <>
                 {user !== null?
-                <Button onClick={() => {
-                   
-                   route.push("/")
-                   clearAllCookies()
-                   window.location.reload();
-                }}>
-                    Log out
-                </Button>
+                    <UserList/>
+
+                 
                 :<div className="auth-btns hidden lg:flex space-x-4 items-center capitalize">
                 <Link href={'/signup'} className='rounded-md bg-secondary-100 px-6 py-1 font-bold text-base border-none outline-none hover:opacity-80'>
                   create account

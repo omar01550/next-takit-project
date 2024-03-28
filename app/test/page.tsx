@@ -10,16 +10,16 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command"
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ChevronDown } from "lucide-react";
 import { useState } from "react"
 
-export default function FromTO({station,setStation}) {
+export default function FromTO({station,setStation,inputTitle}) {
 
    const [open,setOpen]= useState(false);
   return (
     
                  <div className="w-full min-h-auto m-h-80">
-                 <button onClick={_=> setOpen(!open)} className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground focus:outline-none  focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1">{station?station:"select a from station"} <ArrowDown/></button>
+                 <button onClick={_=> setOpen(!open)} className="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground focus:outline-none  focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1">{station?station:inputTitle} <ChevronDown/></button>
           <Command className={open?"rounded-lg border shadow-md":"rounded-lg border shadow-md hidden"}  >
       <CommandInput placeholder="Type a command or search..." />
       <CommandList className="">

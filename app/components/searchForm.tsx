@@ -36,7 +36,7 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,error,
      
       const handleSearch = async () => {
         setLoading(true)
-          fetch("http://192.168.0.104:3000/api/tickets")
+          fetch("http://localhost:3000/api/tickets")
           .then((res) => {
               return res.json()
           }).then((tickets) => {
@@ -51,11 +51,12 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,error,
        
       
        return (
-         <div className="flex flex-col lg:flex-row justify-start items-start">
+         <div className="flex flex-col lg:flex-row justify-start items-start -translate-y-6">
 
    {/* from to  */}
-            <FromTO station={from} setStation={setFrom}/>
-            <FromTO station={to} setStation={setTo}/>
+            <FromTO station={from} setStation={setFrom} inputTitle={'select a from station'}/>
+            <FromTO station={to} setStation={setTo} inputTitle={'select a to station'}/>
+            
 
 
 {/* from to */}
@@ -92,7 +93,13 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,error,
          </Popover>
 {/* date */}
 
+{/* add return  */}
+ 
+<button className="flex h-10 w-full  items-center justify-between gap-2  rounded-md border border-input bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground focus:outline-none  focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 text-black capitalize" onClick={handleSearch}> remove return <span>-</span></button>
+      
 
+
+{/* count */}
          <Select defaultValue={count} onValueChange={(value) => {
                setCount(value)
                
@@ -124,7 +131,7 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,error,
 
     
       
-       <button className="flex h-10 w-full lg:w-auto  items-center justify-start gap-2  rounded-md border border-input bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground focus:outline-none  focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 bg-red-500 text-white" onClick={handleSearch}>{loading?'loading ....':<><Search/> Search</>}</button>
+       <button className="flex h-10 w-full lg:w-auto  items-center justify-start gap-2  rounded-md border border-input bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground focus:outline-none  focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 bg-primary-100 text-white" onClick={handleSearch}>{loading?'loading ....':<><Search/> Search</>}</button>
       
          </div>
        )

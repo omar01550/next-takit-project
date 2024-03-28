@@ -11,6 +11,7 @@ import {
 
 import React from 'react'
 import { number } from 'zod'
+import TrainDetails from './trainDetails'
 interface ITrainTicket{
       type:"train"|"metro",
      number:number,
@@ -104,10 +105,8 @@ const TrainTicket = ({number,from,to,count,price,round,type}:ITrainTicket) => {
                     <AccordionTrigger className=''>
                         <span className='bg-secondary-100 text-white p-1 rounded-md font-bold mt-2 w-auto'>more details</span>
                     </AccordionTrigger>
-                    <AccordionContent className='w-full bg-gray-200 py-20'>
-                          <h1 className="text-3xl text-center text-secondary-100">
-                                hellr details
-                          </h1>
+                    <AccordionContent className='w-full'>
+                          <TrainDetails/>
                     </AccordionContent>
 
               </AccordionItem>

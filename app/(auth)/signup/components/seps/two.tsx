@@ -22,9 +22,7 @@ const StepTwo = () => {
        {
          name:'firstname',
          title:"first name",
-         
-         
-
+       
        },
        {
         name:'lastname',
@@ -36,6 +34,22 @@ const StepTwo = () => {
            message:"this field is erquired"
           
           },
+        }
+      },
+      {
+        name:'email',
+        title:"email",
+
+        validation:{
+          required:{
+           value:true,
+           message:"this field is erquired"
+          
+          },
+          pattern:{
+             value:/^([a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)$/,
+             message:"invaild email"
+          }
         }
       },
       {
@@ -83,7 +97,7 @@ const StepTwo = () => {
                })
                 // delete confirm password
                 delete userData.confirmpassword
-               fetch("https://next-takit-project.vercel.app/",{
+               fetch("http://localhost:3000/api/signup",{
                  method:"POST",
                  body:JSON.stringify(userData)
               
@@ -121,7 +135,7 @@ const StepTwo = () => {
                 <label htmlFor={item.name} className='capitalize text-lg font-semibold text-secondary-100'>{item.title}</label>
                 {formState.errors[item.name]&&<h3 className="text-md text-primary-100 capitalize">{formState.errors[item.name]["message"]}</h3>}
 
-              <input type="text"  id={item.name} placeholder='enter your email' className="bg-[rgb(238,242,255)] text-blue-900 focus:outline-none w-full  p-3 rounded-md text-base font-medium"
+              <input type="text"  id={item.name} placeholder={'enter your '+ item.title} className="bg-[rgb(238,242,255)] text-blue-900 focus:outline-none w-full  p-3 rounded-md text-base font-medium"
                       {...register(item.name, {...item.validation,required:{value:true,message:`${item.title}  is required`}})}
                        
                       />

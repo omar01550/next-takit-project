@@ -7,7 +7,7 @@ const IntroSignup = () => {
     <h1 className="text-3xl md:text-5xl font-bold">
          <span className='text-primary-100 capitalize'>
               create
-         </span> an account
+         </span> <span className='text-secondary-100 capitalize'> an account</span>
     </h1>
 
     <LoginImage className=" mt-24" />
