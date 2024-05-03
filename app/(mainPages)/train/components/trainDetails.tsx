@@ -1,8 +1,13 @@
 import Logo from '@/app/components/logo'
 import { X } from 'lucide-react'
+import Link from 'next/link'
 import React from 'react'
 
-const TrainDetails = () => {
+const TrainDetails = ({count,ticket}) => {
+
+
+
+
   return (
     <div className="w-full bf-white p-4">
           <div className="train-details-header flex justify-between items-center">
@@ -12,7 +17,7 @@ const TrainDetails = () => {
 
           <div className="train-info flex justify-between items-center mt-5 capitalize text-secondary-100 text-2xl font-semibold">
               <div className="station-count">
-                  Track (11 station)
+                  Track ({ticket.stations.length} station)
               </div>
 
               <div className="train-number">
@@ -26,15 +31,15 @@ const TrainDetails = () => {
 
           <div className="stations-line w-full h-[2px] bg-primary-100 rounded-md mt-24 flex justify-between items-center">
               {
-              [1,2,3,4,5,6,1,2,3,4,5].map((item) => {
+              ticket.stations.map((station) => {
                  return (
                      <div className='w-[10px] h-[10px] rounded-full border-2 border-solid border-secondary-100 relative '>
                           <div className="absolute station-name text-secondary-100 -top-10">
-                             banha
+                             {station.name}
                           </div>
 
                           <div className="absolute station-name text-secondary-100 -bottom-14">
-                             8:30 am
+                             {station.time}
                           </div>
 
                      </div>
@@ -49,9 +54,9 @@ const TrainDetails = () => {
           </h1>
 
 
-          <div className="btn flex justify-center items-center mt-6">
+          <Link className="btn flex justify-center items-center mt-6" href={`/payment?count=${count}&id=${3432423}`}>
                 <button className=' text-white bg-primary-100 font-semibold text-xl px-4 py-2 rounded-md shadow-sm capitalize'>chose this trip</button>
-          </div>
+          </Link>
     </div>
   )
 }

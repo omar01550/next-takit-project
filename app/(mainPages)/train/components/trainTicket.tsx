@@ -28,8 +28,16 @@ interface ITrainTicket{
      price:number
 };
 
+const NumberTransilation = {
+       1:'One',
+       2:"Two",
+       3:"Three",
+       4:"Four",
+       5:"Five"
+}
 
-const TrainTicket = ({number,from,to,count,price,round,type}:ITrainTicket) => {
+
+const TrainTicket = ({number,from,to,count,price,round,type,ticket}:ITrainTicket) => {
   return (
     
            <div className='capitalize bg-[#F5FAFF] p-4 rounded-md mt-8' >
@@ -80,8 +88,8 @@ const TrainTicket = ({number,from,to,count,price,round,type}:ITrainTicket) => {
                  <div className="count-persons w-full flex justify-evenly items-center ps-0 lg:ps-14">
                        <div className="count w-full flex justify-start items-center gap-1">
                              <User className='text-primary-100'/>
-                             <h4 className="count-number text-secontary-100">1</h4>
-                             <h4 className="count-string text-secontary-100">.One</h4>
+                             <h4 className="count-number text-secontary-100">{count}</h4>
+                             <h4 className="count-string text-secontary-100">.{NumberTransilation[count]}</h4>
                        </div>
 
                        <div className="price-section flex flex-col justify-center items-center gap-2 text-secondary-100">
@@ -100,13 +108,13 @@ const TrainTicket = ({number,from,to,count,price,round,type}:ITrainTicket) => {
                  </div>
           </div>
           <div className="more-details w-full flex justify-start items-center">
-          <Accordion type="single" collapsible className='w-full'>
-              <AccordionItem value='1'>
+          <Accordion type="single" collapsible className='w-full' >
+              <AccordionItem value='1' >
                     <AccordionTrigger className=''>
                         <span className='bg-secondary-100 text-white p-1 rounded-md font-bold mt-2 w-auto'>more details</span>
                     </AccordionTrigger>
-                    <AccordionContent className='w-full'>
-                          <TrainDetails/>
+                    <AccordionContent className='w-full' >
+                          <TrainDetails  count={count} price={price} ticket={ticket}/>
                     </AccordionContent>
 
               </AccordionItem>

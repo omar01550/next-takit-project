@@ -1,7 +1,12 @@
+import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
 
 
 
-export const GET = async () => {
-  return NextResponse.json({message:"done"})
+export const POST = async (request:Request) => {
+
+  return NextResponse.redirect('http://localhost:3000/train',{status:302});
+
+
+
 }

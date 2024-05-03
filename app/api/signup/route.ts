@@ -8,6 +8,7 @@ export const POST = async (request:Request) => {
      delete body.password;
     const user = false;
     
+    
     if (user) {
           return NextResponse.json({message:"this email already ha a account"},{status:409})
     }

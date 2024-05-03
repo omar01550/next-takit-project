@@ -5,7 +5,7 @@ import IntroSignup from './components/intro'
 import CreateAccount from './components/createAccount'
 
 const SignupPage = () => {
-  return (
+return (
         <main className='signup-page'>
             <ContainerWrapper className='px-0 lg:px-28'>
                  <CreateAccount/>

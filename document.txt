@@ -1,0 +1,13 @@
+login 
+ - method == post;
+ - body == email,password
+ - res  ==  token 
+
+signup
+   method == post
+   body == passpost_number,country,firstname,email,password,mobile,number
+   res == token
+
+
+
+

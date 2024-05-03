@@ -13,7 +13,7 @@ import {
 import { ArrowDown, ChevronDown } from "lucide-react";
 import { useState } from "react"
 
-export default function FromTO({station,setStation,inputTitle}) {
+export default function FromTO({station,setStation,inputTitle,bookData,setBookData,type}) {
 
    const [open,setOpen]= useState(false);
   return (
@@ -25,11 +25,16 @@ export default function FromTO({station,setStation,inputTitle}) {
       <CommandList className="">
         <CommandEmpty>No results found.</CommandEmpty>
         <CommandGroup title="from" className="">
-                {["almansourah","talkha","banha","tanta","cairo","alex",...["almansourah","talkha","banha","tanta","cairo","alex"]].map((station) => {
+                {["almansourah","talkha","banha","tanta","cairo","alex"].map((station) => {
                     return (
                       <CommandItem className="rounded-sm shadow-sm capitalize">
                          <span className="w-full p-2 rounded-sm"  onClick={() => {
                               setStation(station);
+                              setBookData({
+                                 ...bookData,
+                                 [type]:station
+                              })
+                              
                               setOpen(false)
 
                           

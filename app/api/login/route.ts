@@ -14,16 +14,11 @@ const users =[
 
 export const POST = async (request:NextRequest) => {
 const body = await request.json();
-console.log(body);
 
 
-const user = users.find((user) => {
-    return user.email == body.email && user.password == body.password
-})
-console.log();
 
 if (body.email == "omar@gmail.com" && body.password == "omar101010") {
-    return new Response(JSON.stringify({...user,token:JWT.sign({...body,name:"ali",isAdmin:true},"hamada_secret")}))
+    return new Response(JSON.stringify({...users[0],token:JWT.sign({...body,name:"ali",role:"admin"},"hamada_secret")}))
 }else if(body==null){
     return NextResponse.json({
          message:'not found user'

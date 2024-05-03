@@ -8,6 +8,18 @@ const nextConfig = {
         ignoreBuildErrors: true,
       },
     
+       images:{
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: "avatars.githubusercontent.com",
+            port: '',
+            pathname: "/u/107444038?v=4",
+          },
+        ],
+    
+        
+       }
 };
 
 export default nextConfig;

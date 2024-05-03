@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-
 import { useContext } from 'react';
 import { SignupContext } from '../createAccount';
 import { useForm } from 'react-hook-form';
@@ -97,19 +96,26 @@ const StepTwo = () => {
                })
                 // delete confirm password
                 delete userData.confirmpassword
-               fetch("https://next-takit-project.vercel.app/api/signup",{
+               fetch("http://localhost:3000/api/signup",{
                  method:"POST",
+                 cache:"no-cache",
                  body:JSON.stringify(userData)
               
                }).then((res) => {
+                  console.log('the response status is '+ res.status);
+                
                    if (res.status == 409) {
                     return new Promise((res,rej)=>{rej("rej")})
                   }
-                  return res.json()
+                  
+                    return res.json()
+                  
                    
                }).then((res) => {
                    document.cookie=`token=${res.token};`
                    route.push("/")
+                   route.refresh()
+        
                    
                })
                .catch((err) => {

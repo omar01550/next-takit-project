@@ -1,4 +1,3 @@
-"use client"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -18,9 +17,19 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowBigRightDashIcon, Settings, UserRound } from "lucide-react";
+import { cookies } from "next/headers";
+import { getUserState } from "@/lib/utils";
+import Logout from "./logout";
 
 
 export function UserList() {
+    
+  const allCookies = cookies();
+  const token = allCookies.get("token")?.value;
+
+const user = getUserState(token)
+
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className="hidden lg:flex cursor-pointer">
@@ -34,27 +43,24 @@ export function UserList() {
         <DropdownMenuLabel>Omar medhat</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <Link href="/profile">
+          <Link href="/profile/87283782">
           <DropdownMenuItem>
             Profile
             <DropdownMenuShortcut><UserRound/></DropdownMenuShortcut>
           </DropdownMenuItem>
            </Link>
-          <DropdownMenuItem onClick={() => {
-              fetch("http://localhost:3000/api/logout").then((res) => {
-                  return res
-              }).then((result) => {
-                  console.log('result');
-                  
-              })
-          }}>
-            Log out
-            <DropdownMenuShortcut><ArrowBigRightDashIcon/></DropdownMenuShortcut>
-          </DropdownMenuItem>
+          <Logout/> 
           <DropdownMenuItem>
-            Settings
+              Settings
             <DropdownMenuShortcut><Settings/></DropdownMenuShortcut>
           </DropdownMenuItem>
+<Link href={'/dashboard/adminp'}>
+<DropdownMenuItem>
+              Dashboard
+            <DropdownMenuShortcut><Settings/></DropdownMenuShortcut>
+          </DropdownMenuItem>
+
+</Link>
           </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

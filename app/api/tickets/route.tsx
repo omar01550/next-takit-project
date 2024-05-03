@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server"
 const tickets =[
     {
          price:50,
-         count:1,
+         count:3,
          number:23434,
          grade:3,
          stations:[
@@ -92,8 +92,10 @@ const tickets =[
 
 
 
-export const GET = async (request:NextRequest) => {
+export const POST = async (request:NextRequest) => {
     
+    const body = await request.json();
+    console.log(body);
     
      
      

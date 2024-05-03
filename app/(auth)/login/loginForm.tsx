@@ -33,7 +33,7 @@ const LoginForm = () => {
 const  handleLogin =(data) => {
   setLoading(true)
   if (data) {
-   fetch("https://next-takit-project.vercel.app/api/login",{
+   fetch("http://localhost:3000/api/login",{
       method:"POST",
       body:JSON.stringify(data)
    })
@@ -45,14 +45,18 @@ const  handleLogin =(data) => {
       }
    })
    .then((result) => {
+    console.log(result);
+    
             
         const token = result.token ;
-        document.cookie=`token=${token}`;
+        document.cookie=`token=${token};`;
         if (token ) {
          const userDecoded = JWT.decode(token);
          setUser(userDecoded)
-        route.push("/")    
-}
+           route.push("/");
+           route.refresh()
+
+        }
      
    })
    .catch((error) => {

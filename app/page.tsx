@@ -7,11 +7,9 @@ import ServiceBus from '@/public/images/serviceBus'
 import ServiceMetro from '@/public/images/serviceMetro'
 import ServiceTrain from '@/public/images/serviceTrain'
 import { cookies } from 'next/headers'
-
+export const dynamic ="force-dynamic"
 
 const HomePage = () => {
-
-
 
   return (
     <main className="home w-full">

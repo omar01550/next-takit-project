@@ -24,10 +24,10 @@ import {
      } from "@/components/ui/select"
      
 import FromTO from "../test/page"
+
      
-export default function SearchFrom({loading,setLoading,tickets,setTickets,error,setError}) {
+export default function SearchFrom({loading,setLoading,tickets,setTickets,error,setError,BookData,setBookData}) {
        const [date, setDate] = React.useState<Date>()
-       const [count,setCount] = React.useState<number>(1);
        const [from,setFrom] = useState<string|null>(null)
        const [to,setTo] = useState<string|null>(null)
 
@@ -36,7 +36,15 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,error,
      
       const handleSearch = async () => {
         setLoading(true)
-          fetch("https://next-takit-project.vercel.app/api/tickets")
+          fetch("http://localhost:3000/api/tickets",{
+             method:"POST",
+             body:JSON.stringify({
+                 from:from,
+                 to:to,
+                 date:date,
+                 count:BookData.count
+             })
+          })
           .then((res) => {
               return res.json()
           }).then((tickets) => {
@@ -54,8 +62,8 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,error,
          <div className="flex flex-col lg:flex-row justify-start items-start -translate-y-6">
 
    {/* from to  */}
-            <FromTO station={from} setStation={setFrom} inputTitle={'select a from station'}/>
-            <FromTO station={to} setStation={setTo} inputTitle={'select a to station'}/>
+            <FromTO station={from} setStation={setFrom} inputTitle={'select a from station'} bookData ={BookData} setBookData ={setBookData} type="from"/>
+            <FromTO station={to} setStation={setTo} inputTitle={'select a to station'}  bookData ={BookData} setBookData ={setBookData} type="to"/>
             
 
 
@@ -82,6 +90,10 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,error,
                selected={date}
                onSelect={(date) => {
                      setDate(date)
+                     setBookData({
+                       ...BookData,
+                       date:date
+                     })
                      
                }}
                initialFocus
@@ -95,13 +107,23 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,error,
 
 {/* add return  */}
  
-<button className="flex h-10 w-full  items-center justify-between gap-2  rounded-md border border-input bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground focus:outline-none  focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 text-black capitalize" onClick={handleSearch}> remove return <span>-</span></button>
+<button className="flex h-10 w-full  items-center justify-between gap-2  rounded-md border border-input bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground focus:outline-none  focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 text-black capitalize" onClick={() => {
+       
+           setBookData({
+               ...BookData,
+               return :!BookData.return
+           })
+
+}}> {BookData.return ?"Remove":"Add"} return <span>{BookData.return ?"-":"+"}</span></button>
       
 
 
 {/* count */}
-         <Select defaultValue={count} onValueChange={(value) => {
-               setCount(value)
+         <Select defaultValue={0} onValueChange={(value) => {
+               setBookData({
+                 ...BookData,
+                 count:value
+               })
                
          }}>
       <SelectTrigger className="w-full focus:ring-0 flex">

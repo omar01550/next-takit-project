@@ -1,6 +1,6 @@
 "use client"
 import SearchForm from '@/app/components/searchForm'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ContainerWrapper from '@/app/components/containerWrapper'
 import TrainTicket from './components/trainTicket'
 import TicketsLoading from '@/app/components/ticketsLoading'
@@ -16,14 +16,20 @@ const TrainPage =  () => {
           to:"",
           date:"",
           return :false,
-          count:0,
+          count:2,
       })
 
       const [tickets,setTickets] = useState([])
       const [loading,setLoading] = useState(false);
       const [error,setError] = useState(null)
 
-  
+
+       useEffect(() => {
+           console.log(BookData);
+           
+       },[BookData])
+
+
   return (
     <main className='min-h-[30vh]'>
          <ContainerWrapper>
@@ -34,7 +40,7 @@ const TrainPage =  () => {
                       setLoading={setLoading} 
                       setError={setError}
                 />          
-
+         
                 <div className="tickets-container px-0 lg:px-20">
                   {
                      tickets.length!=0
@@ -53,10 +59,11 @@ const TrainPage =  () => {
                           station:ticket.stations[ticket.stations.length-1].name,
                            time:ticket.stations[ticket.stations.length-1].time,
                          }}
-                         count={ticket.count}
+                         count={BookData.count}
                          price={ticket.price}
                          round={true}
                          type="train"
+                         ticket={ticket}
 
 
                       />

@@ -8,7 +8,7 @@ import { cookies } from 'next/headers'
 import { getUserState } from '@/lib/utils'
 import { UserList } from '@/app/components/userList'
 
-
+export const dynamic = 'force-dynamic'
 const Header = () => {
    
   const allCookies = cookies();
