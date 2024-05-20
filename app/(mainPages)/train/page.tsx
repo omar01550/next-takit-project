@@ -11,6 +11,9 @@ import ServiceTrain from '@/public/images/serviceTrain'
 
 const TrainPage =  () => {
 
+
+
+  
       const [BookData,setBookData] = useState({
           from:"",
           to:"",
@@ -18,10 +21,21 @@ const TrainPage =  () => {
           return :false,
           count:2,
       })
+       // valiadte search form
+      const [errors ,setErrors] = useState({
+        to:null,
+        date:null
+      })
+
+      useEffect(function () {
+         console.log('the errors in effect',errors);
+         
+      },[errors])
 
       const [tickets,setTickets] = useState([])
       const [loading,setLoading] = useState(false);
-      const [error,setError] = useState(null)
+      const [error,setError ]= useState(null);
+
 
 
        useEffect(() => {
@@ -33,12 +47,14 @@ const TrainPage =  () => {
   return (
     <main className='min-h-[30vh]'>
          <ContainerWrapper>
+          
                 <SearchForm 
                       BookData={BookData} 
                       setBookData={setBookData} 
                       setTickets={setTickets}
                       setLoading={setLoading} 
-                      setError={setError}
+                      errors={errors}
+                      setErrors={setErrors}
                 />          
          
                 <div className="tickets-container px-0 lg:px-20">
@@ -87,7 +103,7 @@ const TrainPage =  () => {
 
                 </div>
          </ContainerWrapper>
-
+         
    </main>
   )
 }
