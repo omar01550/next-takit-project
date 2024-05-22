@@ -39,13 +39,13 @@ const OwnerDashBaord = () => {
                        <DatePicker/>
                 </div>
 
-                <div className="card flex justify-between items-center flex-wrap py-14">
+                <div className="card flex justify-between items-center flex-wrap py-14 space-y-4 lg:space-y-0">
                       <InfoCard/>
                       <InfoCard/>
                       <InfoCard/>
                       <InfoCard/>
                 </div>
-                <div className="flex justify-between items-center md:flex-wrap lg:flex-nowrap gap-2">
+                <div className="flex justify-between items-center flex-wrap lg:flex-nowrap gap-2 ">
                         <div className="border-[1px] border-black border-solid rounded-md w-full h-[200px]">
                                     <CircleChart/>
                         </div>

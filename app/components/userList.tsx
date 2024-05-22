@@ -54,7 +54,7 @@ const user = getUserState(token)
               Settings
             <DropdownMenuShortcut><Settings/></DropdownMenuShortcut>
           </DropdownMenuItem>
-<Link href={'/dashboard/admin'}>
+<Link href={'/dashboard/owner'}>
 <DropdownMenuItem>
               Dashboard
             <DropdownMenuShortcut><Settings/></DropdownMenuShortcut>
