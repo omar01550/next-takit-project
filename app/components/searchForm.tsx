@@ -77,13 +77,23 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,BookDa
                  to:BookData.to,
                  date:BookData.date,
                  count:BookData.count,
-                 return:BookData.return
+                 return:BookData.return,
+                 userid:"qw98ew8qe87w8"
              })
           })
           .then((res) => {
+              if (res.status == 404) {
+                setErrors({
+                  ...errors,
+                  noTickets:true
+
+               })
+
+                 return new Promise((res,rej)=>{rej("not found")})
+              }
               return res.json()
           }).then((tickets) => {
-            console.log(tickets);
+            
             
                console.log(tickets);
                
@@ -207,7 +217,7 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,BookDa
 
  
    
-    <button className="flex h-10 w-full lg:w-auto  items-center justify-start gap-2  rounded-md border border-input bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground focus:outline-none  focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 bg-primary-100 text-white" onClick={handleSearch}>{loading?'loading ....':<><Search/> Search</>}</button>
+    <button className="flex h-10 w-full lg:w-auto  items-center justify-start gap-2  rounded-md border border-input bg-background px-3 py-2 text-sm  placeholder:text-muted-foreground focus:outline-none  focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 bg-secondary-100 text-white" onClick={handleSearch}>{loading?'loading ....':<><Search/> Search</>}</button>
     
 
    
@@ -216,6 +226,8 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,BookDa
           {
              errors.to?<p className="to:p text-center text-2xl text-red-600">{errors.to}</p>
              :errors.date?<p className="to:p text-center text-2xl text-red-600">{errors.date}</p>
+             :errors.noTickets?<p className="to:p text-center text-2xl text-red-600">no tikites found</p>
+
              :""
           }
       

@@ -22,7 +22,19 @@ import { getUserState } from "@/lib/utils";
 import Logout from "./logout";
 
 
+
+let currentDate = new Date();
+let day =currentDate.getDate();
+let month = currentDate.getMonth();
+let year= currentDate.getFullYear();
+ let date = `${year}-${month+1}-${day}`
+ 
+  
+
+
+
 export function UserList() {
+  console.log('the date in user list is '+date);
     
   const allCookies = cookies();
   const token = allCookies.get("token")?.value;
@@ -50,11 +62,7 @@ const user = getUserState(token)
           </DropdownMenuItem>
            </Link>
           <Logout/> 
-          <DropdownMenuItem>
-              Settings
-            <DropdownMenuShortcut><Settings/></DropdownMenuShortcut>
-          </DropdownMenuItem>
-<Link href={'/dashboard/owner'}>
+<Link href={'/dashboard/owner?date='+date}>
 <DropdownMenuItem>
               Dashboard
             <DropdownMenuShortcut><Settings/></DropdownMenuShortcut>

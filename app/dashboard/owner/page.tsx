@@ -8,24 +8,26 @@ import HorizontalBarChart from './components/horizontalBar';
 
 
 
-const Info = {
-      tickets:{
-                total:200,
-                sailed:150,
-      },
-      users:{
-         count:20000,
-         forgin:2000,
-         
-      }
-    }
 
 
+const OwnerDashBaord = async () => {
 
-const OwnerDashBaord = () => {
+  const res = await fetch("http://localhost:3000/api/dashboard/owner?date=2024-05-01",{cache:"no-cache"})
+  const {data} = await res.json();
+  let totalUsers = 0;
+  let tottalTickets =0;
+  let totalSail =0;
 
+  for(let i=0;i<data.length;i++){
+     totalUsers+=data[i].LocalUsers+data[i].ForeignUsers;
+     tottalTickets+=data[i].TotalTickets;
+     totalSail+=data[0].TicketsSold;
+  }
+
+  console.log(totalSail,totalUsers,tottalTickets);
   
-
+  
+  
 
 
   return (
@@ -40,10 +42,26 @@ const OwnerDashBaord = () => {
                 </div>
 
                 <div className="card flex justify-between items-center flex-wrap py-14 space-y-4 lg:space-y-0">
-                      <InfoCard/>
-                      <InfoCard/>
-                      <InfoCard/>
-                      <InfoCard/>
+                      <InfoCard 
+                         title={'Users'}
+                         count={3000}
+                      />
+
+<InfoCard 
+                         title={'Sails'}
+                         count={500}
+                      />
+
+<InfoCard 
+                         title={'Tickets'}
+                         count={5000}
+                      />
+
+<InfoCard 
+                         title={"Revenue"}
+                         count={3000}
+                      />
+                      
                 </div>
                 <div className="flex justify-between items-center flex-wrap lg:flex-nowrap gap-2 ">
                         <div className="border-[1px] border-black border-solid rounded-md w-full h-[200px]">

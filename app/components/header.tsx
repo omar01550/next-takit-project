@@ -18,14 +18,14 @@ const user = getUserState(token)
   return (
     <header className='flex justify-between items-center py-4 relative'>      
         <Logo/>
-            <nav className='hidden lg:flex space-x-4  capitalize items-end'>
-                  <Link href="/train" className='text-lg font-semibold flex justify-center items-center gap-2 hover:text-primary-100'>
+            <nav className='hidden lg:flex space-x-4  capitalize items-end text-secondary-100'>
+                  <Link href="/train" className='text-lg font-semibold flex justify-center items-center gap-2 hover:text-primary-100 '>
                       train
                       <Train/>
                   </Link>
 
                   <Link href='/buses' className='text-lg font-semibold flex justify-center items-center gap-2  hover:text-primary-100'>
-                      Buses
+                      Bus
                       <Bus />
                   </Link>
 

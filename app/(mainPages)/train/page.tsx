@@ -4,7 +4,10 @@ import React, { useEffect, useState } from 'react'
 import ContainerWrapper from '@/app/components/containerWrapper'
 import TrainTicket from './components/trainTicket'
 import TicketsLoading from '@/app/components/ticketsLoading'
-import ServiceTrain from '@/public/images/serviceTrain'
+import ServiceTrain from '@/public/images/serviceTrain';
+import TrainImage from '../../images/train&ticketsvg fill-min.png'
+import Image from 'next/image'
+import Service from '@/app/components/service'
 
 
 
@@ -91,8 +94,11 @@ const TrainPage =  () => {
                      error?'fialed to load tickets'
                      :
                       <div className="flex justify-center items-center w-Fullscreen py-8">
-                            <ServiceTrain/>
-                      </div>
+                             <Service
+                                ServiceImage={TrainImage}
+                                title={'train'}
+                             />
+                        </div>
 
                   }
                        

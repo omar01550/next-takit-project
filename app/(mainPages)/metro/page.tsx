@@ -6,7 +6,7 @@ import TrainTicket from '../train/components/trainTicket'
 
 
 
-const TrainPage = () => {
+const MetroPage = () => {
 
       const [BookData,setBookData] = useState({
           from:"",
@@ -55,4 +55,4 @@ const TrainPage = () => {
   )
 }
 
-export default TrainPage
+export default MetroPage

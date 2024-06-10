@@ -40,7 +40,7 @@ const NumberTransilation = {
 const TrainTicket = ({number,from,to,count,price,round,type,ticket}:ITrainTicket) => {
   return (
     
-           <div className='capitalize bg-[#F5FAFF] p-4 rounded-md mt-8' >
+           <div className='capitalize bg-[#ffe0b9] p-4 rounded-md mt-8' >
           <h3 className="text-center text-secondary-100 text-xl">
                No : {number}
           </h3>
@@ -111,7 +111,7 @@ const TrainTicket = ({number,from,to,count,price,round,type,ticket}:ITrainTicket
           <Accordion type="single" collapsible className='w-full' >
               <AccordionItem value='1' >
                     <AccordionTrigger className=''>
-                        <span className='bg-secondary-100 text-white p-1 rounded-md font-bold mt-2 w-auto'>more details</span>
+                        <span className='bg-primary-100 text-white p-1 rounded-md font-bold mt-2 w-auto'>Chose this trip</span>
                     </AccordionTrigger>
                     <AccordionContent className='w-full' >
                           <TrainDetails  count={count} price={price} ticket={ticket}/>
