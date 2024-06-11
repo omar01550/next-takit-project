@@ -7,6 +7,7 @@ import clearAllCookies from '../../lib/clearCookie.js';
 import { cookies } from 'next/headers'
 import { getUserState } from '@/lib/utils'
 import { UserList } from '@/app/components/userList'
+import TrainIcon from '@/public/images/trainIcon'
 
 export const dynamic = 'force-dynamic'
 const Header = () => {
@@ -21,7 +22,7 @@ const user = getUserState(token)
             <nav className='hidden lg:flex space-x-4  capitalize items-end text-secondary-100'>
                   <Link href="/train" className='text-lg font-semibold flex justify-center items-center gap-2 hover:text-primary-100 '>
                       train
-                      <Train/>
+<TrainIcon/>
                   </Link>
 
                   <Link href='/buses' className='text-lg font-semibold flex justify-center items-center gap-2  hover:text-primary-100'>

@@ -2,6 +2,7 @@ import Logo from '@/app/components/logo'
 import { Train, X } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
+import SelectChar from './SelectChair'
 
 const TrainDetails = ({count,ticket}) => {
 
@@ -52,33 +53,13 @@ const TrainDetails = ({count,ticket}) => {
            
 
           <h1 className="text-center capitalize text-2xl font-semibold mt-24 text-secondary-100">
-               Detrmine where you sit
+                Choose Your Trolley Number 
           </h1>
 
                     {/* train trolly */}
-                    <div className="flex justify-between items-center gap-2 mt-4">
-              {
-                 [1,2,3,4,5,6].map((car,i) => { return (
-                    // <div className="car border-2 border-secondary-100 rounded-md flex justify-center items-center gap-2 w-3/12 h-[120px] bg-gray-200">
-                    //      Car {car}
-                          
-                    // </div>
-                    <div className="w-[200px] h-[80px] bg-gray-300 border-solid border-2 border-secondary-100 flex justify-around items-start pt-3 rounded-md">
-                          <div className="window w-[20px] h-[20px] border-solid border-[1px] border-secondary-100 rounded-md  mt-[5px]"></div>
-                          <div className="door w-[20px] h-[64px] border-solid border-[1px] border-secondary-100 border-b-transparent"></div>
-                          <div className="window w-[20px] h-[20px] border-solid border-[1px] border-secondary-100 rounded-md  mt-[5px]"></div>
-
-                          <div className="window w-[20px] h-[20px] border-solid border-[1px] border-secondary-100 rounded-md  mt-[5px]"></div>
-
-                          <div className="window w-[20px] h-[20px] border-solid border-[1px] border-secondary-100 rounded-md  mt-[5px]"></div>
-                          <div className="door w-[20px] h-[64px] border-solid border-[1px] border-secondary-100 border-b-transparent"></div>
+                 <SelectChar/>
 
 
-                    </div>
-
-                 ) })
-              }
-           </div>
                     {/* train trolly */}
 
 
