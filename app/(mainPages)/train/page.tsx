@@ -3,7 +3,7 @@ import SearchForm from '@/app/components/searchForm'
 import React, { useEffect, useState } from 'react'
 import ContainerWrapper from '@/app/components/containerWrapper'
 import TrainTicket from './components/trainTicket'
-import TicketsLoading from '@/app/components/ticketsLoading'
+import TicketsLoadinzg from '@/app/components/ticketsLoading'
 import ServiceTrain from '@/public/images/serviceTrain';
 import TrainImage from '../../images/train&ticketsvg fill-min.png'
 import Image from 'next/image'
