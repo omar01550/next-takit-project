@@ -3,18 +3,24 @@ import React from 'react'
 import Header from './header'
 import ContainerWrapper from './containerWrapper'
 import './css/hero.css';
-import { cookies } from 'next/headers';
+import { cookies ,headers} from 'next/headers';
 import jwt from 'jsonwebtoken'
 import { getUserState } from '@/lib/utils';
+import { useRouter } from 'next/navigation';
 
 const Hero = () => {
 
   const allCookies = cookies();
+  const allHeaders= headers();
+  console.log(allHeaders);
+
   const token = allCookies.get("token")?.value;
+  
+
    
 const user = getUserState(token);
   return (
-    <div className='w-full h-[300px] text-white hero relative'>
+    <div className='w-full h-[300px] text-white hero relative bg-metro'>
 
 
         {/* <div className="overlay absolute left-0 top-0 w-full h-full bg-black opacity-60"></div> */}

@@ -25,7 +25,7 @@ const user = getUserState(token)
 <TrainIcon/>
                   </Link>
 
-                  <Link href='/buses' className='text-lg font-semibold flex justify-center items-center gap-2  hover:text-primary-100'>
+                  <Link href='/bus' className='text-lg font-semibold flex justify-center items-center gap-2  hover:text-primary-100'>
                       Bus
                       <Bus />
                   </Link>

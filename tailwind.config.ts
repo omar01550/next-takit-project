@@ -20,7 +20,13 @@ const config = {
         "2xl": "1400px",
       },
     },
+    
     extend: {
+      backgroundImage:{
+        metro:'url(../public/images/pharone-train.png)',
+        home:'url(../public/images/home-page-hero.png)',
+
+      },
       colors: {
         primary:{
           100:"#9f6a3d" 
