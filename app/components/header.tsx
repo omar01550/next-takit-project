@@ -7,7 +7,9 @@ import clearAllCookies from '../../lib/clearCookie.js';
 import { cookies } from 'next/headers'
 import { getUserState } from '@/lib/utils'
 import { UserList } from '@/app/components/userList'
-import TrainIcon from '@/public/images/trainIcon'
+import TrainIcon from '../HomeComponents/icons/trainIcon'
+import BusIcon from '../HomeComponents/icons/busIcon'
+import MetroIcon from '../HomeComponents/icons/metroIcon'
 
 export const dynamic = 'force-dynamic'
 const Header = () => {
@@ -27,12 +29,12 @@ const user = getUserState(token)
 
                   <Link href='/bus' className='text-lg font-semibold flex justify-center items-center gap-2  hover:text-primary-100'>
                       Bus
-                      <Bus />
+                      <BusIcon/>
                   </Link>
 
                   <Link href='/metro' className='text-lg font-semibold flex justify-center items-center gap-2  hover:text-primary-100'>
                       Metro
-                      <TrainFront/>
+<MetroIcon/>
                   </Link>
             </nav>
 
