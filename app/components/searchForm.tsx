@@ -70,7 +70,7 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,BookDa
        
         function getTickets() {
           setLoading(true)
-          fetch("http://localhost:3000/api/tickets",{
+          fetch("https://next-takit-project.vercel.app/api/tickets",{
              method:"POST",
              body:JSON.stringify({
                  from:BookData.from,
