@@ -64,8 +64,8 @@ const handleSubmit= (e) => {
               <Logo/>
               <UserCard/>
               
-               <form action="" className="updateProfile w-full flex flex-col justify-center items-center space-y-6 " onSubmit={handleSubmit}>
-                     <div className="updat-image w-[90px] h-[90px] rounded-full bg-gray-300 justify-center items-center flex mt-10"  onClick={() => { FileRef.current.click()}}>
+               <form action="" className="updateProfile w-full flex flex-col justify-center items-center space-y-6 mt-10 " onSubmit={handleSubmit}>
+                     {/* <div className="updat-image w-[90px] h-[90px] rounded-full bg-gray-300 justify-center items-center flex mt-10"  onClick={() => { FileRef.current.click()}}>
                           {
                              image?<img src={image} alt="not found image w-full h-full" width={100} height={100}/>:<Camera className=' text-secondary-100 text-3xl'  size={44}/>
                           }
@@ -82,7 +82,7 @@ const handleSubmit= (e) => {
                                       setImage(result.image)
                                    })
                                 
-                      }}/>
+                      }}/> */}
 
                      <div className="flex justify-around items-center w-full pt-6">
                           <input type="text" name="firstname" className="bg-[#F4ECDC] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='first name' value={user&&user.firstname} onChange={handleChange}/>
