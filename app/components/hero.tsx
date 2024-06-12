@@ -13,7 +13,6 @@ const Hero = () => {
   const allCookies = cookies();
   const allHeaders= headers();
   console.log(allHeaders);
-
   const token = allCookies.get("token")?.value;
   
 
@@ -27,7 +26,7 @@ const user = getUserState(token);
          <ContainerWrapper>
                 <Header/>
     
-                <h1 className='text-3xl capitalize text-center font-bold mt-24 relative text-secondary-100'>Book it with Takit </h1>
+                <h1 className='text-3xl capitalize text-center font-bold mt-16 relative text-secondary-100'>Book it with Takit </h1>
          </ContainerWrapper>
     </div>
   )
