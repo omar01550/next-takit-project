@@ -1,8 +1,10 @@
 'use client';
 import ContainerWrapper from '@/app/components/containerWrapper'
+import Logo from '@/app/components/logo';
 import { Camera, Upload } from 'lucide-react'
 import Image from 'next/image';
 import React, { useEffect, useReducer, useRef, useState } from 'react'
+import UserCard from './userCard';
 
 
 
@@ -59,10 +61,9 @@ const handleSubmit= (e) => {
   return (
     <main className="w-full">
         <ContainerWrapper className='w-full py-16'>
-               <h1 className="text-center text-3xl text-secondary-100 capitalize font-semibold">
-                    update your profile
-               </h1>
-
+              <Logo/>
+              <UserCard/>
+              
                <form action="" className="updateProfile w-full flex flex-col justify-center items-center space-y-6 " onSubmit={handleSubmit}>
                      <div className="updat-image w-[90px] h-[90px] rounded-full bg-gray-300 justify-center items-center flex mt-10"  onClick={() => { FileRef.current.click()}}>
                           {
@@ -84,23 +85,23 @@ const handleSubmit= (e) => {
                       }}/>
 
                      <div className="flex justify-around items-center w-full pt-6">
-                          <input type="text" name="firstname" className="bg-[rgb(238,242,255)] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='first name' value={user&&user.firstname} onChange={handleChange}/>
+                          <input type="text" name="firstname" className="bg-[#F4ECDC] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='first name' value={user&&user.firstname} onChange={handleChange}/>
                             
-                          <input type="text" className="bg-[rgb(238,242,255)] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='last name' value={user&&user.lastname} onChange={handleChange} name='lastname'/>
+                          <input type="text" className="bg-[#F4ECDC] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='last name' value={user&&user.lastname} onChange={handleChange} name='lastname'/>
                      </div>
 
 
                      <div className="flex justify-around items-center w-full mt-10">
-                          <input type="text" className="bg-[rgb(238,242,255)] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='email' value={user&&user.email} onChange={handleChange} name='email'/>
+                          <input type="text" className="bg-[#F4ECDC] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='email' value={user&&user.email} onChange={handleChange} name='email'/>
                             
-                          <input type="text" className="bg-[rgb(238,242,255)] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='mobile number' value={user&&user.mobile} onChange={handleChange} name='mobile'/>
+                          <input type="text" className="bg-[#F4ECDC] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='mobile number' value={user&&user.mobile} onChange={handleChange} name='mobile'/>
                      </div>
 
 
                      <div className="flex justify-around items-center w-full mt-10">
-                          <input type="text" className="bg-[rgb(238,242,255)] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='country' value={user&&user.country} onChange={handleChange} name='country'/>
+                          <input type="text" className="bg-[#F4ECDC] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='country' value={user&&user.country} onChange={handleChange} name='country'/>
                             
-                          <input type="text" className="bg-[rgb(238,242,255)] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='passport' value={user&&user.passport} onChange={handleChange} name='passport'/>
+                          <input type="text" className="bg-[#F4ECDC] text-blue-900 focus:outline-none w-5/12  p-3 rounded-md text-base font-medium" placeholder='passport' value={user&&user.passport} onChange={handleChange} name='passport'/>
                      </div>
 
                      <div className="flex w-full justify-center items-center pt-6">
