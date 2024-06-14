@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import React from 'react'
 import Hero from './components/hero'
 import ContainerWrapper from './components/containerWrapper'
 import Service from './components/service'
@@ -8,12 +7,9 @@ import TrainServiceImage from './images/train&ticketsvg fill-min.png';
 import metroServiceImage from './images/metro&ticketsvg fill-min.png';
 import BusServiceImage from './images/bus&ticket.svg-min.png'
 // import ServiceTrain from '@/public/images/serviceTrain'
-import { cookies } from 'next/headers'
 import Image from 'next/image'
 export const dynamic ="force-dynamic"
 import GruopImage from './images/Group discussion-rafiki 2 (1)-min.png'
-import { group } from 'console'
-import ServiceMetro from '@/public/images/serviceMetro'
 import FeatureCard from './HomeComponents/featureCard'
 import GuideCard from './HomeComponents/guideCard'
 import Search from './HomeComponents/icons/Search'
@@ -21,7 +17,6 @@ import Select from './HomeComponents/icons/select'
 import Insert from './HomeComponents/icons/insert'
 import CheckOut from './HomeComponents/icons/checkOut'
 import Ticket from './HomeComponents/icons/ticket'
-import GroupIcon from './HomeComponents/icons/groupIcon'
 
 const HomePage = () => {
 

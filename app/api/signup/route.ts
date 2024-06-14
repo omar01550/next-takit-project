@@ -1,12 +1,15 @@
 import { NextResponse } from "next/server";
 import jwt from 'jsonwebtoken'
-
+    
 export const POST = async (request:Request) => {
 
     const body = await request.json();
 
      delete body.password;
     const user = false;
+
+
+
     
     
     if (user) {
