@@ -18,6 +18,16 @@ import Insert from './HomeComponents/icons/insert'
 import CheckOut from './HomeComponents/icons/checkOut'
 import Ticket from './HomeComponents/icons/ticket'
 
+export const metadata ={
+    title:"takit home page ",
+    description:`with  Takit: Your one-stop shop for Egypt's rail, bus & metro bookings.
+    Search & compare journeys online.
+    Select your preferred time, service & seat.
+    Fast & secure booking - all from your phone or computer.
+    Experience a simpler way to travel Egypt.`
+
+}
+
 const HomePage = () => {
 
   return (
