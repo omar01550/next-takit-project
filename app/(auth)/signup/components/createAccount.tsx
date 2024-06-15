@@ -15,12 +15,6 @@ const CreateAccount = () => {
     
 
 
-useEffect(() => {
-  console.log('the user data is ');
-  
-  console.log( userData);
-  
-},[userData])
 
    return (
        <section className="create-account w-full">

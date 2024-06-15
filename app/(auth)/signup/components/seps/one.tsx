@@ -6,6 +6,7 @@ import Other from '@/public/images/other';
 import OtherImage from '../../images/other';
 import { Button } from '@/components/ui/button';
 import { useForm } from 'react-hook-form';
+import CountriesSelector from '@/app/components/countresSelector';
 
 
 type  IChose = "egypt"|"other";
@@ -104,10 +105,13 @@ const StepOne = () => {
                    }
                    
             })}>
+                                            {/* <CountriesSelector className="w-4/12"/> */}
+
                    
                    {
                       inputs[chose].map((item) => {
                         return (
+
                               <div className="input-field flex flex-col gap-2 w-full lg:w-5/12">
                                  
 
@@ -118,6 +122,8 @@ const StepOne = () => {
                                   ...item.validation
                                   
                               })}/>
+
+
                            </div> 
                         )
                       })

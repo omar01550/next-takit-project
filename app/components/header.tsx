@@ -10,6 +10,14 @@ import { UserList } from '@/app/components/userList'
 import TrainIcon from '../HomeComponents/icons/trainIcon'
 import BusIcon from '../HomeComponents/icons/busIcon'
 import MetroIcon from '../HomeComponents/icons/metroIcon'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 
 export const dynamic = 'force-dynamic'
 const Header = () => {
@@ -24,7 +32,7 @@ const user = getUserState(token)
             <nav className='hidden lg:flex space-x-4  capitalize items-end text-secondary-100'>
                   <Link href="/train" className='text-lg font-semibold flex justify-center items-center gap-2 hover:text-primary-100 '>
                       train
-<TrainIcon/>
+                      <TrainIcon/>
                   </Link>
 
                   <Link href='/bus' className='text-lg font-semibold flex justify-center items-center gap-2  hover:text-primary-100'>
@@ -34,7 +42,7 @@ const user = getUserState(token)
 
                   <Link href='/metro' className='text-lg font-semibold flex justify-center items-center gap-2  hover:text-primary-100'>
                       Metro
-<MetroIcon/>
+                      <MetroIcon/>
                   </Link>
             </nav>
 
@@ -55,7 +63,21 @@ const user = getUserState(token)
          </div>
                 }
             </>
-            <MenuIcon className='lg:hidden'/>
+            <Sheet >
+  <SheetTrigger className='lg:hidden'>      
+          <MenuIcon className='' />
+  </SheetTrigger>
+  <SheetContent side={"left"}>
+    <SheetHeader>
+      <SheetTitle>Are you absolutely sure?</SheetTitle>
+      <SheetDescription>
+        This action cannot be undone. This will permanently delete your account
+        and remove your data from our servers.
+      </SheetDescription>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>
+            
     </header>
 
 

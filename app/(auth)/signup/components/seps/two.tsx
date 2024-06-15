@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useContext } from 'react';
 import { SignupContext } from '../createAccount';
 import { useForm } from 'react-hook-form';
@@ -17,6 +17,13 @@ const StepTwo = () => {
     const [userData,setUserData,step,setStep] = useContext(SignupContext);
     const {register,handleSubmit,formState,getValues,setError} = useForm();
     const route = useRouter();
+
+    useEffect(() => {
+      console.log(userData);
+      console.log('use adata changed');
+      
+      
+    },[userData])
     const inputs =[
        {
          name:'firstname',
@@ -86,26 +93,54 @@ const StepTwo = () => {
 
   return (
     <form action="" className='py-12 flex flex-col justify-center items-center gap-2 w-full px-0 lg:px-14 font-semibold' onSubmit={handleSubmit((data) => {
-      console.log(formState.errors);
-      
-           if (data) {
-               setUserData({
-                  ...userData,
-                  ...data
+      delete data["confirmpassword"]
+      delete data["passport-number"]
+setUserData(
+  () => {
+    return (
+      {
+        ...data,
+        ...userData,
+      }
+    )
+  }
+) ;
+
+// console.log("the data is ", userData);
+
+
+
+
+
+
+        
                  
-               })
-                // delete confirm password
-                delete userData.confirmpassword
-               fetch("https://next-takit-project.vercel.app/api/signup",{
-                 method:"POST",
-                 cache:"no-cache",
-                 body:JSON.stringify(userData)
-              
-               }).then((res) => {
+                
+fetch("http://192.168.0.104:5000/signup", {
+  method: "POST",
+  headers: {
+      "Content-Type": "application/json"
+  },
+  body: JSON.stringify({...data,...userData})
+      
+ 
+})
+.then((res) => {
                   console.log('the response status is '+ res.status);
                 
                    if (res.status == 409) {
                     return new Promise((res,rej)=>{rej("rej")})
+                  }
+                  if(res.status == 402){
+                     setError("firstname",{message:"this user is already have a account"})
+                    return new Promise((res,rej)=>{rej("rej")})
+
+                  }
+
+                  if (res.status == 500) {
+                    setError("firstname",{message:"server error"})
+                    return new Promise((res,rej)=>{rej("rej")})
+
                   }
                   
                     return res.json()
@@ -125,7 +160,7 @@ const StepTwo = () => {
                 
                })
 
-           }               
+                      
     })}>
            <div className="flex justify-center items-center">
              <Logo/>
