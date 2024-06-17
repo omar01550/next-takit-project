@@ -65,7 +65,7 @@ const user = getUserState(token)
             </>
             <Sheet >
   <SheetTrigger className='lg:hidden'>      
-          <MenuIcon className='' />
+          <MenuIcon className='' size={33} color='#132968'/>
   </SheetTrigger>
   <SheetContent side={"left"}>
     <SheetHeader>

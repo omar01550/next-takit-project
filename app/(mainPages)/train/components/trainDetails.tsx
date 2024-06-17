@@ -2,7 +2,8 @@ import Logo from '@/app/components/logo'
 import { Train, X } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-import SelectChar from './SelectChair'
+import SelectCar from './SelectCar';
+import SelectChair from './SelectChair';
 
 const TrainDetails = ({count,ticket}) => {
 
@@ -57,8 +58,9 @@ const TrainDetails = ({count,ticket}) => {
           </h1>
 
                     {/* train trolly */}
-                 <SelectChar/>
-
+                 
+<SelectCar/>
+<SelectChair/>
 
                     {/* train trolly */}
 

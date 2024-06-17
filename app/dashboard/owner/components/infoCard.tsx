@@ -1,26 +1,35 @@
 import React from 'react'
-import { BarChart2, LineChart } from 'lucide-react'
+import IndecatorIcon from './indecatorIcon';
+import IndecatorImage from './Graph.png'
+import ArrowUp from '../icons/arrow-up.png'
+import Image from 'next/image';
 
-
-const InfoCard = ({title,count}) => {
+const InfoCard = () => {
   return (
-      <div className="p-3 border-[1px] border-black border-solid rounded-md w-full md:w-[250px]">
-            <div className="flex justify-between items-center w-full">
-                 <div className="number text-secondary-100 text-3xl flex justify-start gap-4 items-center  w-full">
-                        {count}
-                        <div className="w-[12px] h-[12px] bg-red-500 rounded-full"></div>
-                 </div>
+     <div className="w-[350px] h-[150px] rounded-md border-[#767FB4] border-solid border-[2px] p-3">
+         <h3 className="title text-xl font-semibold capitalize">
+              Sales
+         </h3>
 
-                 <p className="text-2xl font-semibold text-secondary-100">
-                     {title}
-                 </p>
-            </div>
-            <div className="flex justify-center items-center mt-3">
-                    <BarChart2  size={80} width={150} className='text-primary-100'/>
-                    <BarChart2  size={80} width={150} className='text-primary-100'/>
-            </div>
-            
-      </div>
+         <div className="bottom-card">
+              <p className="text-3xl font-semibold">6K</p>
+              <div className="flex justify-between items-center text-base">
+                   <div className="text flex justify-start items-center">
+                   <Image src={ArrowUp} alt="not found"/>
+
+                       <span className="text-green-200">26%</span>
+                       <span className="">up vs last year</span>
+                   </div>
+
+                   <Image src={IndecatorImage} alt="not found" className='w-[130px] h-[70px] -translate-y-5'/>
+
+                   
+              </div>
+         </div>
+
+           
+ </div>
+
   )
 }
 

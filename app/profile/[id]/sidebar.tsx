@@ -52,7 +52,7 @@ const mainMenu = [
 
 const SideBar = () => {
   return (
-    <aside className="sidebar w-2/12 h-screen border-e-2 border-e-secondary-100   text-white py-10 px-6 bg-[#F4ECDC]">
+    <aside className="sidebar w-[300px] h-screen border-e-2 border-e-secondary-100   text-white py-10 px-6 bg-[#F4ECDC] hidden lg:block">
         <Logo/>
         <div className="flex justify-center items-center gap-3 mt-8 py-8 px-4 border-b-solid border-b-2 border-b-primary-100">
               <Image src={UserImage} alt="not found image " className='w-[60] h-[60px]'/>

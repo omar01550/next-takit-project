@@ -33,8 +33,11 @@ const LoginForm = () => {
 const  handleLogin =(data) => {
   setLoading(true)
   if (data) {
-   fetch("https://next-takit-project.vercel.app/api/login",{
+   fetch("http://localhost:5000/login",{
       method:"POST",
+      headers:{
+        "Content-Type": "application/json"
+      },
       body:JSON.stringify(data)
    })
    .then((res) => {

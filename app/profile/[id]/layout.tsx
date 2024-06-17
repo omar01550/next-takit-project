@@ -12,7 +12,7 @@ const Layout = ({children}:{children:ReactNode}) => {
     
 
          <SideBar/>
-        <section className="w-10/12">
+        <section className="w-full lg:w-10/12">
            {children }
         </section>
     </div>

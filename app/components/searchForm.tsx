@@ -23,21 +23,15 @@ import {
        SelectValue,
      } from "@/components/ui/select"
      
-import FromTO from "../test/page"
+import FromTO from "../components/fromToSelector";
 
      
-export default function SearchFrom({loading,setLoading,tickets,setTickets,BookData,setBookData,errors,setErrors}) {
+export default function SearchFrom({BookData,setBookData,errors,setErrors,setickets,setLoading,loading,setTickets}) {
        const [date, setDate] = React.useState<Date>()
-       const [from,setFrom] = useState<string|null>(null)
-       const [to,setTo] = useState<string|null>(null)
-
        const [open, setOpen] = React.useState(false)
        
        const handleValidation = ()=>{
           
-            //  if (BookData.date == '' && BookData.to == BookData.from||BookData.date !== ''&&BookData.to == BookData.from) {
-                 
-            //  }
 
 
             // check date
@@ -70,15 +64,19 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,BookDa
        
         function getTickets() {
           setLoading(true)
-          fetch("https://next-takit-project.vercel.app/api/tickets",{
+          fetch("http://localhost:5000/tickets",{
              method:"POST",
+             headers: {
+              "Content-Type": "application/json"
+          },
+        
              body:JSON.stringify({
                  from:BookData.from,
                  to:BookData.to,
                  date:BookData.date,
                  count:BookData.count,
                  return:BookData.return,
-                 userid:"qw98ew8qe87w8"
+                 serviceType:BookData.serviceType
              })
           })
           .then((res) => {
@@ -92,12 +90,12 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,BookDa
                  return new Promise((res,rej)=>{rej("not found")})
               }
               return res.json()
-          }).then((tickets) => {
+          }).then((result) => {
             
             
-               console.log(tickets);
                
-              setTickets(tickets)
+               
+              setTickets(result.tickets)
           })
           .finally(() => {
              setLoading(false)
@@ -125,8 +123,8 @@ export default function SearchFrom({loading,setLoading,tickets,setTickets,BookDa
               <div className="flex flex-col lg:flex-row justify-start items-start -translate-y-6 w-full">
 
 {/* from to  */}
-         <FromTO station={from} setStation={setFrom} inputTitle={'select a from station'} bookData ={BookData} setBookData ={setBookData} type="from"/>
-         <FromTO station={to} setStation={setTo} inputTitle={'select a to station'}  bookData ={BookData} setBookData ={setBookData} type="to"/>
+         <FromTO BookData={BookData} inputTitle={'select a from station'}  setBookData ={setBookData} type="from"/>
+         <FromTO BookData={BookData} inputTitle={'select a to station'}    setBookData ={setBookData} type="to"/>
          
 
 

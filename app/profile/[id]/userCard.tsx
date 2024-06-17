@@ -5,15 +5,15 @@ import { Trash, Trash2 } from 'lucide-react'
 
 const UserCard = () => {
   return (
-   <section className="flex justify-between items-center border-solid border-2 border-primary-100 p-6 rounded-md mt-10">
+   <section className="flex flex-col justify-center items-start lg:flex-row lg:items-end lg:justify-between gap-4 border-solid border-2 border-primary-100 p-6 rounded-md mt-10 w-full">
         <div className="flex justify-center items-center gap-3">
               <Image src={userImage} alt="not found image "/>
               <div className="flex flex-col gap-2 text-secondary-100">
-                  <h3 className="user-name font-bold text-2xl">Ahmed elazab</h3>
-                  <h4 className="country text-xl font-semibold">Egyptian notion</h4>
-                  <h4 className="country text-xl font-semibold">ahmedelazab@gmail.com</h4>
+                  <h3 className="user-name font-bold text-xl">Ahmed elazab</h3>
+                  <h4 className="country text-lg font-semibold">Egyptian notion</h4>
+                  <h4 className="country text-lg font-semibold">ahmedelazab@gmail.com</h4>
               </div>
-            </div>
+         </div>
 
         <button className="upload-image bg-secondary-100 text-2xl px-8 py-2 rounded-md text-white flex justify-center items-center gap-2">
         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
