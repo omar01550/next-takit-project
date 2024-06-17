@@ -36,7 +36,7 @@ const HomePage = () => {
           <Hero/>
           <div className="flex justify-center items-center flex-col">
                 <h1 className="text-center text-secondary-100 text-3xl font-bold translate-y-28">All Your Tickets options in one place</h1>
-                <Image src={GruopImage} alt="not found"/>
+                <Image src={GruopImage} alt="not found" loading='lazy'/>
           </div>
 
           <ContainerWrapper className=' space-y-6 py-12 '>

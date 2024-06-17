@@ -1,7 +1,6 @@
 import React from 'react'
-import IndecatorIcon from './indecatorIcon';
-import IndecatorImage from './Graph.png'
-import ArrowUp from '../icons/arrow-up.png'
+import IndecatorImage from '../images/Graph.png'
+import ArrowUp from '../images/arrow-up.png'
 import Image from 'next/image';
 
 const InfoCard = () => {
@@ -15,13 +14,13 @@ const InfoCard = () => {
               <p className="text-3xl font-semibold">6K</p>
               <div className="flex justify-between items-center text-base">
                    <div className="text flex justify-start items-center">
-                   <Image src={ArrowUp} alt="not found"/>
+                   <Image src={ArrowUp} alt="not found" loading='lazy'/>
 
                        <span className="text-green-200">26%</span>
                        <span className="">up vs last year</span>
                    </div>
 
-                   <Image src={IndecatorImage} alt="not found" className='w-[130px] h-[70px] -translate-y-5'/>
+                   <Image src={IndecatorImage} alt="not found" className='w-[130px] h-[70px] -translate-y-5' loading='lazy'/>
 
                    
               </div>

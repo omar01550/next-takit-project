@@ -62,7 +62,7 @@ const user = getUserState(token)
           </DropdownMenuItem>
            </Link>
           <Logout/> 
-<Link href={'/dashboard/owner?date='+date}>
+<Link href={'/dashboard/anlysis'}>
 <DropdownMenuItem>
               Dashboard
             <DropdownMenuShortcut><Settings/></DropdownMenuShortcut>

@@ -8,7 +8,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import {useForm} from 'react-hook-form';
 import { z } from 'zod';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Rotate3D } from 'lucide-react';
 import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined';
 import { useRouter } from 'next/navigation';
 import { userContext } from '@/context/app';
@@ -56,7 +56,8 @@ const  handleLogin =(data) => {
         if (token ) {
          const userDecoded = JWT.decode(token);
          setUser(userDecoded)
-           route.push("/");
+          //  route.push("/");
+           route.back()
            route.refresh()
 
         }
