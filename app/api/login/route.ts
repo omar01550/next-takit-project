@@ -17,7 +17,7 @@ const body = await request.json();
 
 
 
-if (body.email == "omar@gmail.com" && body.password == "omar101010") {
+if (body.email == "takit@gmail.com" && body.password == "takit2024") {
     return new Response(JSON.stringify({...users[0],token:JWT.sign({...body,name:"ali",role:"admin"},"hamada_secret")}))
 }else if(body==null){
     return NextResponse.json({
