@@ -4,6 +4,7 @@ import React, { useState,useEffect } from 'react'
 import ContainerWrapper from '@/app/components/containerWrapper'
 import MetroTicket from './metroTicket'
 import SearchFrom from '@/app/components/searchForm'
+const metroStations = ["shubrah","almazalat","anwar-elsadat","gamal-abdelnaser","abo mahmoud","alatabah","aldouqi","mohamed nageeb","almasarah","helwan","sant katreen"]
 
 
 const MetroPage = () => {
@@ -49,6 +50,7 @@ const MetroPage = () => {
                       setLoading={setLoading} 
                       errors={errors}
                       setErrors={setErrors}
+                      stations={metroStations}
                 />          
                 <div className="tickets-container px-0 lg:px-20">
                        {

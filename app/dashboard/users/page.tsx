@@ -3,6 +3,7 @@ import React from 'react'
 import Title from '../components/title'
 import UsersImage from '../images/list-pointers.png'
 import SearchBar from '../components/searchBar'
+import { TableDemo } from '../components/table'
 
 const Users = () => {
   return (
@@ -17,6 +18,8 @@ const Users = () => {
              <Title title={'users'} icon={UsersImage}/>
          {/* page title */}
          <SearchBar/>
+
+         <TableDemo/>
 
    </main>
 

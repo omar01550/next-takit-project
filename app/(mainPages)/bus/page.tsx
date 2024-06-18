@@ -10,7 +10,7 @@ import Image from 'next/image'
 import Service from '@/app/components/service'
 
 
-
+const busStations = ["almansourah","talka","tanta","almahlah alkoubrah","banha","cairo","alex","aswan","souhag","doumiat"]
 
 const TrainPage =  () => {
 
@@ -146,6 +146,7 @@ const TrainPage =  () => {
                       setLoading={setLoading} 
                       errors={errors}
                       setErrors={setErrors}
+                      stations={busStations}
                 />          
          
                 <div className="tickets-container px-0 lg:px-20">

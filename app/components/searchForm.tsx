@@ -26,7 +26,7 @@ import {
 import FromTO from "../components/fromToSelector";
 
      
-export default function SearchFrom({BookData,setBookData,errors,setErrors,setickets,setLoading,loading,setTickets}) {
+export default function SearchFrom({BookData,setBookData,errors,setErrors,setickets,setLoading,loading,setTickets,stations}) {
        const [date, setDate] = React.useState<Date>()
        const [open, setOpen] = React.useState(false)
        
@@ -123,8 +123,8 @@ export default function SearchFrom({BookData,setBookData,errors,setErrors,setick
               <div className="flex flex-col lg:flex-row justify-start items-start -translate-y-6 w-full">
 
 {/* from to  */}
-         <FromTO BookData={BookData} inputTitle={'select a from station'}  setBookData ={setBookData} type="from"/>
-         <FromTO BookData={BookData} inputTitle={'select a to station'}    setBookData ={setBookData} type="to"/>
+         <FromTO BookData={BookData} inputTitle={'select a from station'}  setBookData ={setBookData} type="from" stations={stations}/>
+         <FromTO BookData={BookData} inputTitle={'select a to station'}    setBookData ={setBookData} type="to" stations={stations}/>
          
 
 
@@ -229,6 +229,8 @@ export default function SearchFrom({BookData,setBookData,errors,setErrors,setick
              :""
           }
       
+
+
       
          </section>
        )

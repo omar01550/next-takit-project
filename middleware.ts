@@ -14,6 +14,19 @@ const token = allCookies.get("token")?.value
 
 const user = jwt.decode(token);
   
+const newHeaders = new Headers(request.headers)
+// Add a new header
+newHeaders.set('omar-route', requestPathName)
+// And produce a response with the new headers
+return NextResponse.next({
+  request: {
+    // New request headers
+    headers: newHeaders,
+  },
+})
+
+
+
 // login signup 
 if (requestPathName.includes("/login")||requestPathName.includes("/signup")) {
     if (user) {
@@ -54,6 +67,9 @@ if (requestPathName.includes("/payment")) {
   
 // }
 
+
+      
+      
 
 
 }

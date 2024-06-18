@@ -7,7 +7,9 @@ import TicketsLoadinzg from '@/app/components/ticketsLoading'
 import ServiceTrain from '@/public/images/serviceTrain';
 import TrainImage from '../../images/train&ticketsvg fill-min.png'
 import Image from 'next/image'
-import Service from '@/app/components/service'
+import Service from '@/app/components/service';
+
+const trainStations = ["almansourah","talka","tanta","almahlah alkoubrah","banha","cairo","alex","aswan","souhag","doumiat"]
 
 
 const TrainPage = () => {
@@ -43,6 +45,7 @@ const TrainPage = () => {
                 errors={errors}
                 setErrors={setErrors}
                 setTickets={setTickets}
+                stations={trainStations}
 
                 
                 
