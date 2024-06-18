@@ -5,8 +5,8 @@ import JWT from 'jsonwebtoken'
 const users =[
      {
          name:"omar",
-         email:"omar@gmial.com",
-         password:"omar101010"
+         email:"takit@gmial.com",
+         password:"takit2024"
      }
 ]
 

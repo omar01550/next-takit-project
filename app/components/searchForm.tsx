@@ -64,7 +64,7 @@ export default function SearchFrom({BookData,setBookData,errors,setErrors,setick
        
         function getTickets() {
           setLoading(true)
-          fetch("http://localhost:5000/tickets",{
+          fetch("https://next-takit-project.vercel.app/api/tickets",{
              method:"POST",
              headers: {
               "Content-Type": "application/json"

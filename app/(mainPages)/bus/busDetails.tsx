@@ -1,9 +1,8 @@
+import BusIcon from '@/app/HomeComponents/icons/busIcon'
 import Logo from '@/app/components/logo'
 import { Train, X } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-import Square from './square'
-import BusStarionsLine from './busStationsLine'
 
 
 const BusTicketDetails = ({count,ticket}) => {
@@ -12,31 +11,55 @@ const BusTicketDetails = ({count,ticket}) => {
 
 
   return (
-      <section className="w-full p-3">
-               <h1 className="text-3xl font-semibold capitalize text-secondary-100">
-                   
-                      <span className='text-primary-100 pr-2'>
-                      Ticket 
-                      </span>
-                        Details
-               </h1>
-                <div className="ticket-details flex justify-between items-center">
+    <div className="w-full bf-white p-4">
+    <div className="train-details-header flex justify-between items-center">
+          <Logo/>
+          <X/>
+    </div>
 
-<div className="left">
-        <BusStarionsLine/>
+    <div className="train-info flex flex-col md:flex-row justify-between items-center mt-5 capitalize text-secondary-100 text-2xl font-semibold">
+        <div className="station-count">
+            Track ({ticket.stations.length} station)
+        </div>
+
+        <div className="train-number flex flex-col md:flex-row justify-center items-center gap-3">
+        <BusIcon/>
+
+             <p className="">Bus 808</p>
+
+        </div>
+
+    </div>
+
+    <div className="stations-line w-full h-[2px] bg-primary-100 rounded-md mt-24 hidden md:flex justify-between items-center ">
+        {
+        ticket.stations.map((station) => {
+           return (
+               <div className='w-[14px] h-[14px] rounded-full border-2 border-solid border-secondary-100 relative bg-gray-100 '>
+                    <div className="absolute station-name text-secondary-100 -top-10 font-semibold">
+                       {station.name}
+                    </div>
+
+                    <div className="absolute station-name text-secondary-100 -bottom-14 font-semibold">
+                       {station.time}
+                    </div>
+
+               </div>
+           )
+        })
+        }
+    </div>
+
+
+     
+
+
+
+
+    <Link className="btn flex justify-center items-center mt-24" href={`/payment?count=${count}&id=${3432423}`}>
+          <button className=' text-white bg-primary-100 font-semibold text-xl px-4 py-2 rounded-md shadow-sm capitalize'>Book Ticket</button>
+    </Link>
 </div>
-<div className="flex justify-between items-center flex-wrap border-2 border-secondary-100 border-solid rounded-md p-2 w-[200px]">
-
-          {[1,2,3,4,5,6,7,8,9].map((square) => {
-                 return <>
-                       <Square/>
-                 </>
-          })}
-</div>
-
-                  </div>
-                  
-</section>
   )
 }
 
