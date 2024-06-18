@@ -1,7 +1,7 @@
 import Logo from '@/app/components/logo'
 import React from 'react'
 import Title from '../components/title'
-import UsersImage from '../images/list-pointers.png'
+import UsersImage from '../images/users-more.png'
 import SearchBar from '../components/searchBar'
 import { TableDemo } from '../components/table'
 

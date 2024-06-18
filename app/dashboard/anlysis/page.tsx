@@ -1,7 +1,7 @@
 import Logo from '@/app/components/logo'
 import React from 'react'
 import Title from '../components/title'
-import UsersImage from '../images/list-pointers.png'
+import AnalysImage  from '../images/carbon_text-link-analysis.png'
 import InfoCard from '../components/infoCard'
 import DatePicker from '../components/datePicker'
 import ProgressCard from '../components/progressCard'
@@ -16,7 +16,7 @@ const Users = () => {
          </div>
 
 <div className="flex justify-between items-center">
-<Title title={'analysis'} icon={UsersImage}/>
+<Title title={'analysis'} icon={AnalysImage}/>
 <DatePicker className={'w-[200px] mt-6'}/>
 </div>
          

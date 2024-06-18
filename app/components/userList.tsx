@@ -57,7 +57,7 @@ const user = getUserState(token)
         <DropdownMenuGroup>
           <Link href="/profile/87283782">
           <DropdownMenuItem>
-            Profile
+            My Profile
             <DropdownMenuShortcut><UserRound/></DropdownMenuShortcut>
           </DropdownMenuItem>
            </Link>
