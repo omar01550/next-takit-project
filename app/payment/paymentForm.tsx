@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation'
 const PaymentForm = () => {
 
    const route = useRouter();
-   route.prefetch("/payment/status")
+   // route.prefetch("/payment/status")
   return (
     <div className="mt-5 form w-full p-2 md:p-8 lg:px-10 md:w-7/12">
     <div className="flex justify-between items-center ">

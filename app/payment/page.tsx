@@ -6,6 +6,7 @@ import PaymentForm from './paymentForm'
 
 const PaymentPage = () => {
   return (
+
   <main className="payment w-full">
         <div className="px-4 md:px-4 py-1 flex justify-start">
               <Logo/>
@@ -22,6 +23,8 @@ const PaymentPage = () => {
    </div>
         {/* payment form  */}
   </main>
+
+
 
 )
 }
