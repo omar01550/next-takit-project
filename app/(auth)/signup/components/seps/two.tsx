@@ -116,7 +116,7 @@ setUserData(
         
                  
                 
-fetch("https://next-takit-project.vercel.app/api/signup", {
+fetch(`https://next-takit-project.vercel.app/api/signup`, {
   method: "POST",
   headers: {
       "Content-Type": "application/json"

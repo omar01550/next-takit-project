@@ -64,7 +64,8 @@ export default function SearchFrom({BookData,setBookData,errors,setErrors,setick
        
         function getTickets() {
           setLoading(true)
-          fetch("https://next-takit-project.vercel.app/api/tickets",{
+          
+          fetch(`https://next-takit-project.vercel.app/api/tickets`,{
              method:"POST",
              headers: {
               "Content-Type": "application/json"
@@ -90,12 +91,13 @@ export default function SearchFrom({BookData,setBookData,errors,setErrors,setick
                  return new Promise((res,rej)=>{rej("not found")})
               }
               return res.json()
-          }).then((result) => {
+          }).then((tickets) => {
             
             
+
                
                
-              setTickets(result.tickets)
+              setTickets(tickets)
           })
           .finally(() => {
              setLoading(false)

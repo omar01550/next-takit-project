@@ -1,7 +1,7 @@
 import Logo from '@/app/components/logo'
 import React from 'react'
 import Title from '../components/title'
-import UsersImage from '../images/list-pointers.png'
+import TicketImage from '../images/icon-park-outline_add-print.png'
 import SearchBar from '../components/searchBar'
 import { TableDemo } from '../components/table'
 
@@ -15,7 +15,7 @@ const Users = () => {
          </div>
 
          {/* page title */}
-             <Title title={'users'} icon={UsersImage}/>
+             <Title title={'tickets'} icon={TicketImage}/>
          {/* page title */}
          <SearchBar/>
          <TableDemo/>
