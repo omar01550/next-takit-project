@@ -10,8 +10,6 @@ const Payment = () => {
 <path d="M37.4932 40.4989L39.7206 42.7264L44.5132 38.2939" stroke="#9F6A3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 
-
-)
 }
 
 export default Payment

@@ -22,7 +22,6 @@ const Hero = () => {
     
                 <h1 className='text-3xl capitalize text-center font-bold mt-16 relative text-secondary-100'>Book it with Takit 
 
-{Math.floor(Math.random()*1000)}
                 </h1>
          </ContainerWrapper>
     </div>

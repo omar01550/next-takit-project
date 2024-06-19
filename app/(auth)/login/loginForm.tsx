@@ -56,6 +56,7 @@ const  handleLogin =(data) => {
         if (token ) {
          const userDecoded = JWT.decode(token);
          setUser(userDecoded)
+         
            route.push("/");
            route.refresh()
 
