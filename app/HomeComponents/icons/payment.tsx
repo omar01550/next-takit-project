@@ -9,6 +9,7 @@ const Payment = () => {
 <path d="M50 40.5C50 42.1875 49.5275 43.785 48.695 45.135C47.1425 47.745 44.285 49.5 41 49.5C37.715 49.5 34.8575 47.745 33.305 45.135C32.4725 43.785 32 42.1875 32 40.5C32 35.5275 36.0275 31.5 41 31.5C45.9725 31.5 50 35.5275 50 40.5Z" stroke="#9F6A3D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M37.4932 40.4989L39.7206 42.7264L44.5132 38.2939" stroke="#9F6A3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
+  )
 
 }
 
